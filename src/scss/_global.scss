@@ -1,0 +1,40 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  outline-color: rgba($accent-color, 0.2);
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100%;
+  font-family: $font-family;
+  font-size: 20px;
+  line-height: 1.5;
+  color: $main-color;
+  background-color: $white-color;
+}
+
+img,
+video {
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input,
+button {
+  font: inherit;
+}

@@ -1,0 +1,58 @@
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 30px;
+  padding: 16px;
+  min-width: 120px;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  color: $white-color;
+  background: transparent;
+  transition: $transition;
+  cursor: pointer;
+
+  &:focus,
+  &:active {
+    background-color: #c8070f;
+  }
+
+  &--primary {
+    padding: 15px 20px;
+    min-width: 260px;
+    font-weight: 600;
+    background: $accent-gradient;
+  }
+
+  &--lg {
+    padding: 20px;
+    width: 360px;
+    max-width: 100%;
+  }
+
+  &--arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $accent-color;
+    padding: 15px 50px 15px 20px;
+    background: url("../img/arrow-icon.svg") center right 18px no-repeat;
+  }
+
+  &--outline {
+    border: 1px solid rgba($main-color, 0.5);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.03em;
+    color: $main-color;
+  }
+
+  @include hover {
+    &:hover {
+
+    }
+  }
+}

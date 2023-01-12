@@ -1,0 +1,18 @@
+// base
+:root {
+  --content-width: 1180px;
+  --container-offset: 10px;
+  --container-width: calc(var(--content-width) + var(--container-offset));
+}
+
+$font-family: "SuisseIntl", sans-serif;
+$transition: 0.25s ease-in-out;
+$menu-transition: 0.35s ease-in-out;
+
+// colors
+$main-color: #161616;
+$white-color: #fff;
+$black-color: #000;
+$accent-light-color: #f47c02;
+$accent-color: #f86a01;
+$accent-gradient: linear-gradient(84.16deg, #ff4e00 1.78%, #ec9f05 57.44%), #161616;

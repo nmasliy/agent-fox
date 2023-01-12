@@ -1,0 +1,28 @@
+.nav {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+
+  > ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    > li {
+      @include mr(30px);
+
+      flex-shrink: 0;
+
+      > a {
+        display: inline-block;
+        transition: color $transition;
+
+        @include hover {
+          color: $accent-color;
+        }
+      }
+    }
+  }
+}
