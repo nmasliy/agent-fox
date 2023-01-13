@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <div class="page-wrapper" id="page">
+  <div class="page-wrapper scroll-container" id="page">
 
     <section class="section hero">
   <div class="container">
@@ -31,10 +31,10 @@
     </a>
     <nav class="header__nav nav">
       <ul>
-        <li><a href="#">Услуги</a></li>
-        <li><a href="#">Проекты</a></li>
-        <li><a href="#">Агенство</a></li>
-        <li><a href="#">Контакты</a></li>
+        <li><a href="#2">Услуги</a></li>
+        <li><a href="#1">Проекты</a></li>
+        <li><a href="#3">Агенство</a></li>
+        <li><a href="#4">Контакты</a></li>
       </ul>
       <a class="header__btn btn btn--outline" href="#">Бриф</a>
     </nav>
@@ -187,9 +187,9 @@
   </div>
 </section>
 
-    <section class="services section section-padding">
+    <section class="services section">
   <div class="container">
-    <div class="services__inner section__inner">
+    <div class="services__inner section__inner section-padding">
       <h2 class="services__title section__title color-gradient">Услуги и цены</h2>
       <ol class="services__list">
         <li class="services__item is-active" data-tabs="1">
@@ -328,9 +328,9 @@
   </div>
 </section>
 
-    <section class="about section section-padding">
+    <section class="about section">
   <div class="container">
-    <div class="about__inner section__inner">
+    <div class="about__inner section__inner section-padding">
       <h3 class="about__title section__title color-gradient"><span class="color-gradient-white">Агентство</span>
         брендинга,
         веб-разработки <span class="color-gradient-white">и интернет-</span>маркетинга</span></h3>
@@ -347,21 +347,71 @@
   </div>
 </section>
 
-    <section class="section">
-  <div class="container">
-    <div class="section__inner">
-      contacts
+    <section class="contacts section">
+  <div class="section__inner">
+    <div class="container">
+      <div class="contacts__inner">
+        <h3 class="contacts__title section__title"><span class="color-gradient">Обсудим</span> ваш проект?</h3>
+        <h4 class="contacts__subtitle">Вам, наверняка, было интересно, <span class="color-gradient">сколько
+            это
+            стоит</span></h4>
+        <form class="contacts__form contacts-form" action="mail.php" method="post" required>
+          <div class="contacts-form__head">
+            <div class="contacts-form__title">Выберите услугу</div>
+            <div class="contacts-form__select">
+              <select name="service" id="contacts-service">
+                <option value="Разработка сайта">Разработка сайта</option>
+                <option value="Разработка сайта2">Разработка сайта2</option>
+                <option value="Разработка сайта3">Разработка сайта3</option>
+                <option value="Разработка сайта4">Разработка сайта4</option>
+              </select>
+            </div>
+          </div>
+          <textarea class="contacts-form__textarea" name="description" id="contacts-description"
+            placeholder="Опишите задачи и цели проекта"></textarea>
+          <div class="contacts-form__row">
+            <input class="contacts-form__input" type="text" placeholder="Имя">
+            <input class="contacts-form__input" type="tel" placeholder="Телефон">
+            <input class="contacts-form__input" type="mail" placeholder="Email">
+          </div>
+          <div class="contacts-form__buttons">
+            <button class="contacts-form__btn btn btn--primary" type="submit">Отправить заявку</button>
+            <label class="contacts-form__file">
+              <input type="file" name="file" id="contacts-file">
+              <img src="img/add-icon.svg" alt="Прикрепить ТЗ или бриф">
+              <span>Прикрепить ТЗ или бриф</span>
+            </label>
+          </div>
+          <div class="contacts-form__policy">Нажимая на кнопку, вы даете согласие на обработку персональных данных и
+            соглашаетесь c <a href="#">политикой конфиденциальности</a></div>
+        </form>
+        <div class="contacts__bottom">
+          <div class="contacts__items">
+            <a href="tel:+73952654888">+7 (39-52) 65-48-88</a>
+            <a href="mailto:client@agent-fox.ru">client@agent-fox.ru</a>
+          </div>
+          <div class="contacts__socials">
+            <div class="contacts__socials-caption">Пишите нам в мессенджеры</div>
+            <ul>
+              <li><a href="#"><img src="img/telegram-icon.svg" width="50" height="50" alt="Telegram"></a></li>
+              <li><a href="#"><img src="img/whatsapp-icon.svg" width="50" height="50" alt="Whatsapp"></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
-
     <footer class="footer">
   <div class="container">
     <div class="footer__inner">
-      footer
+      <div class="footer__text">© 2020-2022 ОГРНИП 320385000069542</div>
+      <a class="footer__link" href="#">Политика конфиденциальности</a>
+      <div class="footer__text">From Russia With Love</div>
     </div>
   </div>
 </footer>
+
+  </div>
+</section>
 
   </div>
   <script src="js/main.js"></script>

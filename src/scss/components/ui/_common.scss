@@ -1,12 +1,13 @@
 .page-wrapper {
-  position: relative;
-  overflow: hidden;
-  transition: 1s cubic-bezier(0.5, 0, 0.5, 1);
+  // position: relative;
+  // overflow: hidden;
+  // transition: 1s cubic-bezier(0.5, 0, 0.5, 1);
 }
 
 .container {
   margin: 0 auto;
   padding: 0 var(--container-offset);
+  height: 100%;
   max-width: var(--container-width);
 }
 
@@ -64,11 +65,17 @@
   position: relative;
 
   // min-height: 100vh;
-  height: 100vh;
+  // height: 100vh;
 
   &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+
     // min-height: 100vh;
-    height: 100vh;
+    // height: 100vh;
   }
 
   &__title {

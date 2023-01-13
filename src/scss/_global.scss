@@ -1,5 +1,4 @@
 html {
-  // overflow: hidden;
   height: 100%;
   box-sizing: border-box;
   -webkit-text-size-adjust: 100%;
@@ -13,6 +12,8 @@ html {
 }
 
 body {
+  // overflow-x: hidden;
+  overflow: hidden;
   margin: 0;
   min-width: 320px;
   min-height: 100%;

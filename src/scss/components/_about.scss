@@ -2,9 +2,6 @@
   color: $white-color;
   background: url("../img/about.png") bottom right no-repeat, url("../img/about-bg.png") center / cover no-repeat;
 
-  &__inner {
-  }
-
   &__title {
     margin-bottom: 50px;
     max-width: 1000px;
@@ -29,8 +26,5 @@
         color: $accent-color;
       }
     }
-  }
-
-  &__btn {
   }
 }

@@ -2,7 +2,7 @@ import Swiper, { Navigation, Pagination, Mousewheel } from 'swiper';
 
 Swiper.use([Navigation, Pagination, Mousewheel]);
 
-const swiper = new Swiper('.projects__slider', {
+export const projectsSlider = new Swiper('.projects__slider', {
   spaceBetween: 50,
   speed: 500,
   navigation: {

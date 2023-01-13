@@ -1,13 +1,12 @@
 .header {
+  margin-bottom: auto;
   padding: 50px 0 55px;
+  width: 100%;
 
   &__inner {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-  }
-
-  &__logo {
   }
 
   &__nav {
