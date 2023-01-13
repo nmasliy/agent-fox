@@ -15,10 +15,10 @@ export const projectsSlider = new Swiper('.projects__slider', {
     formatFractionCurrent: addZero,
     formatFractionTotal: addZero,
   },
-  mousewheel: {
-    eventsTarget: '.projects',
-    releaseOnEdges: true,
-  },
+  // mousewheel: {
+  //   eventsTarget: '.projects',
+  //   releaseOnEdges: true,
+  // },
 });
 
 function addZero(num) {
