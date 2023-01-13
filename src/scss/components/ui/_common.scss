@@ -1,6 +1,7 @@
 .page-wrapper {
   position: relative;
   overflow: hidden;
+  transition: 1s cubic-bezier(0.5, 0, 0.5, 1);
 }
 
 .container {
@@ -55,18 +56,26 @@
   }
 }
 
+.section-padding {
+  padding: 80px 0;
+}
+
 .section {
   position: relative;
-  min-height: 100vh;
+
+  // min-height: 100vh;
+  height: 100vh;
 
   &__inner {
-    min-height: 100vh;
+    // min-height: 100vh;
+    height: 100vh;
   }
 
   &__title {
     font-weight: 900;
     font-size: 64px;
     line-height: 60px;
+    text-transform: uppercase;
     color: $white-color;
   }
 }

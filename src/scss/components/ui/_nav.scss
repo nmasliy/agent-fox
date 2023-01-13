@@ -16,11 +16,24 @@
       flex-shrink: 0;
 
       > a {
+        position: relative;
         display: inline-block;
-        transition: color $transition;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -4px;
+          width: 0;
+          height: 2px;
+          background-color: $black-color;
+          transition: width $transition;
+        }
 
         @include hover {
-          color: $accent-color;
+          &::before {
+            width: 100%;
+          }
         }
       }
     }
