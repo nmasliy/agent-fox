@@ -54,6 +54,23 @@
     }
   }
 
+  &--arrow-black {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $accent-color;
+    padding: 15px 60px 15px 30px;
+    color: $main-color;
+    background: url("../img/arrow-black-icon.svg") center right 18px no-repeat;
+
+    @include hover {
+      &:hover {
+        box-shadow: 0 0 2px $accent-color;
+        background-position: center right 22px;
+      }
+    }
+  }
+
   &--outline {
     border: 1px solid rgba($main-color, 0.5);
     font-weight: 700;

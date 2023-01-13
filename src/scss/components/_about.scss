@@ -1,0 +1,36 @@
+.about {
+  color: $white-color;
+  background: url("../img/about.png") bottom right no-repeat, url("../img/about-bg.png") center / cover no-repeat;
+
+  &__inner {
+  }
+
+  &__title {
+    margin-bottom: 50px;
+    max-width: 1000px;
+  }
+
+  &__list {
+    margin-bottom: 60px;
+
+    > li {
+      @include mb(10px);
+
+      position: relative;
+      padding-left: 20px;
+
+      &::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        font-size: 12px;
+        line-height: 1;
+        color: $accent-color;
+      }
+    }
+  }
+
+  &__btn {
+  }
+}

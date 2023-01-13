@@ -206,6 +206,66 @@ button {
   background-color: #f86a01;
 }
 
+.color-gradient-white {
+  -webkit-text-fill-color: transparent;
+  color: #fff;
+  -webkit-background-clip: text;
+  background-color: #fff;
+}
+
+.play-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 0;
+  width: 140px;
+  height: 140px;
+}
+
+.play-btn::before,
+.play-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  background: -webkit-gradient(linear, left bottom, left top, from(#fff), to(#fff)), #ffa412;
+  background: -o-linear-gradient(bottom, #fff, #fff), #ffa412;
+  background: linear-gradient(0deg, #fff, #fff), #ffa412;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.play-btn::before {
+  width: 100%;
+  height: 100%;
+  opacity: 0.25;
+}
+
+.play-btn::after {
+  width: 120px;
+  height: 120px;
+  opacity: 0.5;
+}
+
+.play-btn__inner {
+  position: relative;
+  z-index: 3;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background: url("../img/play-icon.svg") center no-repeat;
+  background-color: #fff;
+}
+
 .burger {
   position: relative;
   display: none;
@@ -367,14 +427,6 @@ button {
   opacity: 1;
 }
 
-[data-tabs-content] {
-  display: none;
-}
-
-[data-tabs-content].is-active {
-  display: block;
-}
-
 .btn {
   display: inline-block;
   border: none;
@@ -426,6 +478,22 @@ button {
   border: 1px solid #f86a01;
   padding: 15px 50px 15px 20px;
   background: url("../img/arrow-icon.svg") center right 18px no-repeat;
+}
+
+.btn--arrow-black {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: 1px solid #f86a01;
+  padding: 15px 60px 15px 30px;
+  color: #161616;
+  background: url("../img/arrow-black-icon.svg") center right 18px no-repeat;
 }
 
 .btn--outline {
@@ -635,19 +703,21 @@ button {
 .projects__slider {
   margin-top: auto;
   max-width: 100%;
+  max-height: 640px;
 }
 
 .projects__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .projects__content {
   position: relative;
-  top: 1px;
-  padding-right: 40px;
-  width: 74%;
+  margin-right: 40px;
+  width: 77%;
 }
 
 .projects__content picture {
@@ -720,6 +790,15 @@ button {
   transform: rotate(180deg);
 }
 
+.projects__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 .projects__prev,
 .projects__next {
   border: 1px solid #b0b6c5;
@@ -745,6 +824,163 @@ button {
   opacity: 0.5;
 }
 
+.services__title {
+  margin-bottom: 64px;
+}
+
+.services__list {
+  counter-reset: services;
+  position: relative;
+}
+
+.services__item {
+  width: 440px;
+  max-width: 100%;
+}
+
+.services__item.is-active .services__content {
+  display: block;
+}
+
+.services__item.is-active .services__name {
+  color: #f86a01;
+}
+
+.services__item.is-active .services__name::before {
+  color: #f86a01;
+}
+
+.services__item.is-active .services__name::after {
+  background-position: center right;
+  opacity: 1;
+}
+
+.services__name {
+  counter-increment: services;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  padding-top: 6px;
+  padding-right: 42px;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+  -webkit-transition: color 0.25s ease-in-out;
+  -o-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.services__name::before {
+  content: "0" counter(services);
+  margin-top: -6px;
+  margin-right: 3px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #a8b5c9;
+}
+
+.services__name::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 32px;
+  height: 16px;
+  background: url("../img/arrow-orange-icon.svg") center right -40px no-repeat;
+  opacity: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+.services__content {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+  width: calc(100% - 500px);
+}
+
+.services__subtitle {
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.service-list {
+  margin: 40px 0;
+}
+
+.service-list__item:not(:last-child) {
+  margin-bottom: 19px;
+}
+
+.service-list__heading {
+  margin-bottom: 5px;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.service-list__heading span {
+  margin-left: 11px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #f47c02;
+}
+
+.service-list__subtitle {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.about {
+  color: #fff;
+  background: url("../img/about.png") bottom right no-repeat, url("../img/about-bg.png") center/cover no-repeat;
+}
+
+.about__title {
+  margin-bottom: 50px;
+  max-width: 1000px;
+}
+
+.about__list {
+  margin-bottom: 60px;
+}
+
+.about__list > li {
+  position: relative;
+  padding-left: 20px;
+}
+
+.about__list > li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.about__list > li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  font-size: 12px;
+  line-height: 1;
+  color: #f86a01;
+}
+
 .footer {
   padding: 15px 0;
 }
@@ -764,6 +1000,12 @@ button {
   .btn--arrow:hover:hover {
     -webkit-box-shadow: 0 0 4px #f86a01;
     box-shadow: 0 0 4px #f86a01;
+    background-position: center right 22px;
+  }
+
+  .btn--arrow-black:hover:hover {
+    -webkit-box-shadow: 0 0 2px #f86a01;
+    box-shadow: 0 0 2px #f86a01;
     background-position: center right 22px;
   }
 
@@ -789,6 +1031,10 @@ button {
   .projects__prev:hover,
   .projects__next:hover {
     border-color: #f86a01;
+  }
+
+  .services__name:hover {
+    color: #f47c02;
   }
 }
 /*# sourceMappingURL=main.css.map */

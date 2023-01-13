@@ -41,23 +41,21 @@
     margin-left: auto;
   }
 
-  &__next {
-  }
-
   &__slider {
     margin-top: auto;
     max-width: 100%;
+    max-height: 640px;
   }
 
   &__item {
     display: flex;
+    box-sizing: border-box;
   }
 
   &__content {
     position: relative;
-    top: 1px;
-    padding-right: 40px;
-    width: 74%;
+    margin-right: 40px;
+    width: 77%;
 
     picture {
       display: flex;
@@ -119,6 +117,13 @@
   &__prev {
     margin-right: 10px;
     transform: rotate(180deg);
+  }
+
+  &__play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   &__prev,

@@ -1,0 +1,121 @@
+.services {
+  &__inner {
+  }
+
+  &__title {
+    margin-bottom: 64px;
+  }
+
+  &__list {
+    counter-reset: services;
+    position: relative;
+  }
+
+  &__item {
+    width: 440px;
+    max-width: 100%;
+
+    &.is-active {
+      .services__content {
+        display: block;
+      }
+
+      .services__name {
+        color: $accent-color;
+
+        &::before {
+          color: $accent-color;
+        }
+
+        &::after {
+          background-position: center right;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__name {
+    counter-increment: services;
+    position: relative;
+    display: inline-flex;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    padding-top: 6px;
+    padding-right: 42px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    transition: color $transition;
+    cursor: pointer;
+    user-select: none;
+
+    &::before {
+      content: "0" counter(services);
+      margin-top: -6px;
+      margin-right: 3px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #a8b5c9;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 32px;
+      height: 16px;
+      background: url("../img/arrow-orange-icon.svg") center right -40px no-repeat;
+      opacity: 0;
+      transform: translateY(-50%);
+      transition: $transition;
+    }
+
+    @include hover {
+      color: $accent-light-color;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+    width: calc(100% - 500px);
+  }
+
+  &__subtitle {
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
+.service-list {
+  margin: 40px 0;
+
+  &__item {
+    @include mb(19px);
+  }
+
+  &__heading {
+    margin-bottom: 5px;
+    font-size: 24px;
+    line-height: 30px;
+
+    span {
+      margin-left: 11px;
+      font-size: 14px;
+      line-height: 16px;
+      color: $accent-light-color;
+    }
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}

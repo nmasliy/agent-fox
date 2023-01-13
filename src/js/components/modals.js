@@ -9,6 +9,6 @@ const options = {
   overlayCloseAll: true,
 };
 
-const modals = new SimpleModal();
+const modals = new SimpleModal(options);
 
-modals.init(options);
+modals.init();
