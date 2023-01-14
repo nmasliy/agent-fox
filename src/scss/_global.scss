@@ -39,3 +39,10 @@ input,
 button {
   font: inherit;
 }
+
+@media screen and (max-width: 1440px) {
+  body {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+}

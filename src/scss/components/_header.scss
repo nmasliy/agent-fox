@@ -18,3 +18,57 @@
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .header {
+    padding: 10px 0;
+
+    &__logo img {
+      width: 200px;
+    }
+
+    &__menu {
+      position: fixed;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 7;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      overflow: auto;
+      padding: 70px 15px 40px;
+      width: 100%;
+      height: 100%;
+      max-width: 440px;
+      background-color: $white-color;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: $menu-transition;
+
+      &.is-active {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  .header-overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 5;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#000, 0.5);
+    opacity: 0;
+    transition: $menu-transition;
+
+    &.is-active {
+      opacity: 1;
+    }
+  }
+}

@@ -29,23 +29,29 @@
     <a class="header__logo" href="./">
       <img src="img/logo.svg" width="260" height="74" alt="Agentfox - digital agency logo">
     </a>
-    <nav class="header__nav nav">
-      <ul>
-        <li><a href="#2">Услуги</a></li>
-        <li><a href="#1">Проекты</a></li>
-        <li><a href="#3">Агенство</a></li>
-        <li><a href="#4">Контакты</a></li>
-      </ul>
-      <div class="header__btn-wrapper">
-        <a class="header__btn btn btn--outline" href="#">Бриф</a>
-      </div>
-    </nav>
+    <div class="header__menu">
+      <nav class="header__nav nav">
+        <ul>
+          <li><a href="#2">Услуги</a></li>
+          <li><a href="#1">Проекты</a></li>
+          <li><a href="#3">Агенство</a></li>
+          <li><a href="#4">Контакты</a></li>
+        </ul>
+        <div class="header__btn-wrapper">
+          <a class="header__btn btn btn--outline" href="#">Бриф</a>
+        </div>
+      </nav>
+    </div>
+    <button class="burger" aria-label="Открыть меню">
+      <span class="burger__line"></span>
+    </button>
   </div>
+  <div class="header-overlay"></div>
 </header>
 
       <div class="hero__content">
         <h1 class="hero__title color-gradient">Разработка сайтов</h1>
-        <h4 class="hero__subtitle">и другие digital-услуги</h4>
+        <h4 class="hero__subtitle section__subtitle">и другие digital-услуги</h4>
         <div class="hero__text">
           <p>Создаем бренды мирового класса. Кодим технологичные сайты будущего. Привлекаем потенциальных клиентов.</p>
           <p>Автоматизируем бизнес процессы.</p>
@@ -360,7 +366,8 @@
     <div class="container">
       <div class="contacts__inner">
         <h3 class="contacts__title section__title"><span class="color-gradient">Обсудим</span> ваш проект?</h3>
-        <h4 class="contacts__subtitle">Вам, наверняка, было интересно, <span class="color-gradient">сколько
+        <h4 class="contacts__subtitle section__subtitle">Вам, наверняка, было интересно, <span
+            class="color-gradient">сколько
             это
             стоит</span></h4>
         <form class="contacts__form contacts-form" action="mail.php" method="post" required>

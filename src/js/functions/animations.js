@@ -1,6 +1,7 @@
 import { gsap } from "gsap";
 
-const navItemNodes = [...document.querySelectorAll('.header__nav li'), document.querySelector('.header__btn-wrapper')];
+const navListItemNodes = document.querySelectorAll('.header__nav li');
+const navItemNodes = [...navListItemNodes, document.querySelector('.header__btn-wrapper')];
 
 let tl = gsap.timeline()
 
@@ -17,12 +18,19 @@ tl.from(".hero__subtitle", { x: "-100vw", filter:"blur(2px)",  duration: 0.4, ea
 tl.from(".hero__text", { x: "-100vw", filter:"blur(2px)",  duration: 0.5, ease: "power2.out" }, '-=0.3');
 tl.from(".hero__btn-wrapper", { scale: 0,  duration: 0.3, ease: "power2.out" }, '-=0.3');
 
-fullpage.onSlideChangeCustom = (({fromPosition, toPosition}) => {
+fullpage.onSlideChangeCustom = (({fromPosition, toPosition}) => { // Анимация первого экране при скролле мышью, тапами и кнопками
   if (fromPosition === 0 && toPosition === 1) {
-    tl.to(".hero__img", { x: 800, y: 500,  filter:"blur(2px)",  duration: 0.5, ease: "power2.in" })
-    tl.to(".hero", { y: -300,  filter:"blur(1px)",  duration: 0.5, ease: "power2.in" }, "-=0.5")
+    tl.to(".hero__img", { x: 1200, y: 500,  filter:"blur(2px)",  duration: 0.6, ease: "power2.in" });
+    tl.to(".hero", { y: -300,  filter:"blur(1px)",  duration: 0.5, ease: "power2.in" }, "-=0.5");
   } else if (toPosition === 0) {
-    tl.to(".hero", { y: 0,  filter:"blur(0)",  duration: 0.5, ease: "power2.out" })
-    tl.to(".hero__img", { x: 0, y: 0,  filter:"blur(0)",  duration: 0.5, ease: "power2.out" }, "-=0.2")
+    tl.to(".hero", { y: 0,  filter:"blur(0)",  duration: 0.5, ease: "power2.out" });
+    tl.to(".hero__img", { x: 0, y: 0,  filter:"blur(0)",  duration: 0.5, ease: "power2.out" }, "-=0.2");
   }
+})
+
+navListItemNodes.forEach(listItemNode => { // Анимация первого экране при навигации по секция через меню
+  listItemNode.addEventListener('click', () => {
+    tl.to(".hero__img", { x: 1200, y: 500,  filter:"blur(2px)",  duration: 0.6, ease: "power2.in" });
+    tl.to(".hero", { y: -300,  filter:"blur(1px)",  duration: 0.5, ease: "power2.in" }, "-=0.5");
+  })
 })

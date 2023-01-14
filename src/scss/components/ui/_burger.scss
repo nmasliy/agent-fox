@@ -1,10 +1,11 @@
 .burger {
-  $burger-width: 20px;
-  $burger-height: 16px;
+  $burger-width: 30px;
+  $burger-height: 18px;
   $burger-line-height: 2px;
 
   position: relative;
   display: none;
+  outline: transparent;
   border: none;
   padding: 0;
   width: $burger-width;
@@ -66,8 +67,11 @@
       transition: transform 0.3s ease-in-out;
     }
   }
+}
 
-  @include tablet {
+@media screen and (max-width: 1024px) {
+  .burger {
     display: block;
+    margin-top: 10px;
   }
 }

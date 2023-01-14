@@ -1,10 +1,9 @@
 (function () {
   const $html = document.querySelector('html');
-  const $menu = document?.querySelector('[data-menu]');
-  const $burger = document?.querySelector('[data-burger]');
-  const $close = document?.querySelector('[data-menu-close]');
-  const $overlay = document?.querySelector('[data-menu-overlay]');
-  const $menuItems = document?.querySelectorAll('[data-menu-item]');
+  const $menu = document?.querySelector('.header__menu');
+  const $burger = document?.querySelector('.burger');
+  const $overlay = document?.querySelector('.header-overlay');
+  const $menuItems = document?.querySelectorAll('.header__nav li a');
   const TRANSITION_DELAY = 400;
   const MOBILE_MENU_BREAKPOINT = 1024;
 
@@ -15,7 +14,6 @@
     if ($menu && window.innerWidth <= MOBILE_MENU_BREAKPOINT && !isInit) {
       isInit = true;
       $burger.addEventListener('click', toggleMenu);
-      $close?.addEventListener('click', closeMenu);
       $overlay?.addEventListener('click', closeMenu);
       $menuItems.forEach((el) => {
         el.addEventListener('click', closeMenu);

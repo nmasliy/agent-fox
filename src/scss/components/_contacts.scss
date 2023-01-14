@@ -3,7 +3,11 @@
   background: linear-gradient(180deg, #080513 9.9%, rgba(14, 4, 28, 50%) 141.23%), url("../img/contacts-bg.jpg") center / cover no-repeat;
 
   &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding-top: 65px;
+    height: 100%;
   }
 
   &__title {
@@ -12,15 +16,6 @@
 
   &__subtitle {
     margin-bottom: 50px;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 50px;
-  }
-
-  &__form {
-    border-radius: 10px;
-    padding: 50px 160px 40px;
-    background: linear-gradient(0deg, #fff, #fff), linear-gradient(87.71deg, #ff4e00 0%, #ec9f05 100%);
   }
 
   &__bottom {
@@ -54,12 +49,14 @@
 
   &__socials-caption {
     margin-right: 20px;
-    font-size: 20px;
-    line-height: 23px;
   }
 }
 
 .contacts-form {
+  border-radius: 10px;
+  padding: 50px 160px 40px;
+  background: linear-gradient(0deg, #fff, #fff), linear-gradient(87.71deg, #ff4e00 0%, #ec9f05 100%);
+
   &__head {
     display: flex;
     align-items: center;
@@ -170,6 +167,39 @@
 
     &::placeholder {
       color: rgba($main-color, 0.5);
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .contacts-form {
+    padding: 30px 140px 20px;
+  }
+
+  .contacts {
+    &__subtitle {
+      margin-bottom: 20px;
+    }
+
+    &__title {
+      margin-bottom: 10px;
+    }
+
+    &__bottom {
+      padding: 20px 0;
+    }
+
+    &__socials {
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    &__socials-caption,
+    &__items {
+      font-size: 18px;
+      line-height: 1.2;
     }
   }
 }

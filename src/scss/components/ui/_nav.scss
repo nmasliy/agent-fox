@@ -39,3 +39,30 @@
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    min-height: 100%;
+    font-size: 20px;
+    line-height: 1.2;
+
+    > ul {
+      display: block;
+      margin-right: 0;
+      margin-bottom: 20px;
+
+      > li {
+        @include mr(0);
+
+        > a {
+          display: block;
+          padding: 15px 0;
+        }
+      }
+    }
+  }
+}
