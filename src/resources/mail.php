@@ -4,12 +4,12 @@ require 'phpmailer/PHPMailer.php';
 require 'phpmailer/SMTP.php';
 require 'phpmailer/Exception.php';
 
-$title = "Тема письма";
+$title = "Заявка с вашего сайта";
 $file = $_FILES['file'];
 
 $c = true;
 // Формирование самого письма
-$title = "Заголовок письма";
+
 foreach ( $_POST as $key => $value ) {
   if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
     $body .= "
@@ -33,17 +33,18 @@ try {
 
   // Настройки вашей почты
   $mail->Host       = 'smtp.gmail.com'; // SMTP сервера вашей почты
-  $mail->Username   = ''; // Логин на почте
-  $mail->Password   = ''; // Пароль на почте
+  $mail->Username   = 'deckards2505@gmail.com'; // Логин на почте
+  $mail->Password   = 'pbdrsosdrvnnqhxz'; // Пароль на почте
   $mail->SMTPSecure = 'ssl';
   $mail->Port       = 465;
 
-  $mail->setFrom('', 'Заявка с вашего сайта'); // Адрес самой почты и имя отправителя
+  $mail->setFrom('deckards2505@gmail.com', 'Заявка с вашего сайта'); // Адрес самой почты и имя отправителя
 
   // Получатель письма
-  $mail->addAddress('');
+  $mail->addAddress('deckards2505@gmail.com');
+  $mail->addAddress('nikolaymasliy76@gmail.com');
 
-  // Прикрипление файлов к письму
+  // Прикрепление файлов к письму
   if (!empty($file['name'][0])) {
     for ($ct = 0; $ct < count($file['tmp_name']); $ct++) {
       $uploadfile = tempnam(sys_get_temp_dir(), sha1($file['name'][$ct]));

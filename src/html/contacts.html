@@ -7,11 +7,11 @@
             class="color-gradient">сколько
             это
             стоит</span></h4>
-        <form class="contacts__form contacts-form" action="mail.php" method="post" required>
+        <form class="contacts__form contacts-form" action="#" method="POST" enctype="multipart/form-data">
           <div class="contacts-form__head">
             <div class="contacts-form__title">Выберите услугу</div>
             <div class="contacts-form__select">
-              <select name="service" id="contacts-service">
+              <select name="Услуга" id="contacts-service">
                 <option value="Разработка сайта">Разработка сайта</option>
                 <option value="Разработка сайта2">Разработка сайта2</option>
                 <option value="Разработка сайта3">Разработка сайта3</option>
@@ -19,17 +19,17 @@
               </select>
             </div>
           </div>
-          <textarea class="contacts-form__textarea" name="description" id="contacts-description"
+          <textarea class="contacts-form__textarea" name="Описание" id="contacts-description"
             placeholder="Опишите задачи и цели проекта"></textarea>
           <div class="contacts-form__row">
-            <input class="contacts-form__input" type="text" placeholder="Имя">
-            <input class="contacts-form__input" type="tel" placeholder="Телефон">
-            <input class="contacts-form__input" type="mail" placeholder="Email">
+            <input class="contacts-form__input input-name" name="Имя" type="text" placeholder="Имя">
+            <input class="contacts-form__input input-tel" name="Телефон" type="tel" placeholder="Телефон">
+            <input class="contacts-form__input input-email" name="Email" type="mail" placeholder="Email">
           </div>
           <div class="contacts-form__buttons">
             <button class="contacts-form__btn btn btn--primary" type="submit">Отправить заявку</button>
             <label class="contacts-form__file">
-              <input type="file" name="file" id="contacts-file">
+              <input type="file" id="file" type="file" name="file[]" multiple>
               <img src="img/add-icon.svg" alt="Прикрепить ТЗ или бриф">
               <span>Прикрепить ТЗ или бриф</span>
             </label>
