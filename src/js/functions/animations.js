@@ -4,17 +4,17 @@ const navItemNodes = [...document.querySelectorAll('.header__nav li'), document.
 
 let tl = gsap.timeline()
 
-tl.from(".hero__bg-img-wrapper", { x: 1000, filter:"blur(50px)", duration: 0.7, ease: "power2.out" });
-tl.from(".hero__bg-title--2", { y: "-200%",  duration: 1, ease: "power2.out" }, '-=0.3');
-tl.from(".hero__bg-title--1", { y: "-200%",  duration: 1, ease: "power2.out" }, '-=0.7');
-tl.from(".header__logo", { y: "-300",  filter:"blur(15px)",  duration: 0.5, ease: "power2.out" }, '-=1');
+tl.from(".hero__bg-img-wrapper", { x: 1000, filter:"blur(50px)", duration: 0.5, ease: "power2.out" });
+tl.from(".hero__bg-title--2", { y: "-200%",  duration: 0.5, ease: "power2.out" }, '-=0.2');
+tl.from(".hero__bg-title--1", { y: "-200%",  duration: 0.5, ease: "power2.out" }, '-=0.5');
+tl.from(".header__logo", { y: "-300",  filter:"blur(15px)",  duration: 0.4, ease: "power2.out" }, '-=0.3');
 navItemNodes.forEach(itemNode => {
   tl.from(itemNode, {scale: 0, duration: 0.15, ease: "power2.out" }, '-=0.05');
 })
-tl.from(".hero__img", { x: "-100vw",  filter:"blur(4px)",  duration: 1, ease: "power2.out" });
-tl.from(".hero__title", { x: "-100vw",  duration: 0.4, ease: "power2.out" }, '-=0.6');
-tl.from(".hero__subtitle", { x: "-100vw",  duration: 0.4, ease: "power2.out" }, '-=0.3');
-tl.from(".hero__text", { x: "-100vw",  duration: 0.5, ease: "power2.out" }, '-=0.3');
+tl.from(".hero__img", { x: "-100vw",  filter:"blur(4px)",  duration: 0.7, ease: "power2.out" });
+tl.from(".hero__title", { x: "-100vw", filter:"blur(2px)",  duration: 0.4, ease: "power2.out" }, '-=0.25');
+tl.from(".hero__subtitle", { x: "-100vw", filter:"blur(2px)",  duration: 0.4, ease: "power2.out" }, '-=0.3');
+tl.from(".hero__text", { x: "-100vw", filter:"blur(2px)",  duration: 0.5, ease: "power2.out" }, '-=0.3');
 tl.from(".hero__btn-wrapper", { scale: 0,  duration: 0.3, ease: "power2.out" }, '-=0.3');
 
 fullpage.onSlideChangeCustom = (({fromPosition, toPosition}) => {
