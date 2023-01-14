@@ -26,9 +26,7 @@
     background: $accent-gradient;
 
     @include hover {
-      &:hover {
-        box-shadow: 0 0 12px $accent-color;
-      }
+      box-shadow: 0 0 12px $accent-color;
     }
   }
 
@@ -47,10 +45,8 @@
     background: url("../img/arrow-icon.svg") center right 18px no-repeat;
 
     @include hover {
-      &:hover {
-        box-shadow: 0 0 4px $accent-color;
-        background-position: center right 22px;
-      }
+      box-shadow: 0 0 4px $accent-color;
+      background-position: center right 22px;
     }
   }
 
@@ -64,10 +60,8 @@
     background: url("../img/arrow-black-icon.svg") center right 18px no-repeat;
 
     @include hover {
-      &:hover {
-        box-shadow: 0 0 2px $accent-color;
-        background-position: center right 22px;
-      }
+      box-shadow: 0 0 2px $accent-color;
+      background-position: center right 22px;
     }
   }
 
@@ -80,11 +74,9 @@
     color: $main-color;
 
     @include hover {
-      &:hover {
-        border-color: $accent-color;
-        color: $white-color;
-        background-color: $accent-color;
-      }
+      border-color: $accent-color;
+      color: $white-color;
+      background-color: $accent-color;
     }
   }
 }

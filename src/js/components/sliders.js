@@ -2,9 +2,9 @@ import Swiper, { Navigation, Pagination, Mousewheel } from 'swiper';
 
 Swiper.use([Navigation, Pagination, Mousewheel]);
 
-export const projectsSlider = new Swiper('.projects__slider', {
+window.projectsSlider = new Swiper('.projects__slider', {
   spaceBetween: 50,
-  speed: 500,
+  speed: 800,
   navigation: {
     prevEl: '.projects__prev',
     nextEl: '.projects__next',
@@ -15,10 +15,10 @@ export const projectsSlider = new Swiper('.projects__slider', {
     formatFractionCurrent: addZero,
     formatFractionTotal: addZero,
   },
-  // mousewheel: {
-  //   eventsTarget: '.projects',
-  //   releaseOnEdges: true,
-  // },
+  mousewheel: {
+    eventsTarget: '.projects',
+    releaseOnEdges: true,
+  },
 });
 
 function addZero(num) {

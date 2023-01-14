@@ -1,6 +1,4 @@
 .hero {
-  background: url("../img/hero-bg.svg") center right -180px no-repeat;
-
   &__inner {
     position: relative;
     z-index: 2;
@@ -36,6 +34,24 @@
     position: absolute;
     right: -100px;
     bottom: 0;
+  }
+
+  &__btn-wrapper {
+    display: inline-block;
+  }
+
+  &__bg-img-wrapper {
+    position: absolute;
+    right: -180px;
+    top: 50%;
+    z-index: -1;
+    transform: translateY(-50%);
+  }
+
+  &__bg-img {
+    &-lg {
+      display: none;
+    }
   }
 
   &__bg-title {
