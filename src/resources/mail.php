@@ -5,7 +5,7 @@ require 'phpmailer/SMTP.php';
 require 'phpmailer/Exception.php';
 
 $title = "Заявка с вашего сайта";
-$file = $_FILES['file'];
+$files = $_FILES['file'];
 
 $c = true;
 // Формирование самого письма
@@ -42,14 +42,14 @@ try {
 
   // Получатель письма
   $mail->addAddress('deckards2505@gmail.com');
-  $mail->addAddress('nikolaymasliy76@gmail.com');
+  // $mail->addAddress('blablablal');
 
   // Прикрепление файлов к письму
-  if (!empty($file['name'][0])) {
-    for ($ct = 0; $ct < count($file['tmp_name']); $ct++) {
-      $uploadfile = tempnam(sys_get_temp_dir(), sha1($file['name'][$ct]));
-      $filename = $file['name'][$ct];
-      if (move_uploaded_file($file['tmp_name'][$ct], $uploadfile)) {
+  if (!empty($files['name'][0])) {
+    for ($ct = 0; $ct < count($files['tmp_name']); $ct++) {
+      $uploadfile = tempnam(sys_get_temp_dir(), sha1($files['name'][$ct]));
+      $filename = $files['name'][$ct];
+      if (move_uploaded_file($files['tmp_name'][$ct], $uploadfile)) {
           $mail->addAttachment($uploadfile, $filename);
           $rfile[] = "Файл $filename прикреплён";
       } else {
@@ -68,3 +68,31 @@ try {
 } catch (Exception $e) {
   $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}";
 }
+
+// Телеграм
+$token = "5792684320:AAHuduSvGz62A-GvVaI7Z_VFyF36QEHoa5Y";
+$chat_id = "-875734044";
+$txt = "";
+
+foreach ( $_POST as $key => $value ) {
+  if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
+    $txt .= "<b>".$key."</b>: ".$value."%0A";
+  }
+}
+
+$sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
+
+$urlSite = "https://api.telegram.org/bot{$token}/sendDocument";
+
+$document = new CURLFile(realpath($files["tmp_name"]));
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $urlSite);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, ["chat_id" => $chat_id, "document" => $document]);
+curl_setopt($ch, CURLOPT_HTTPHEADER, ["Content-Type:multipart/form-data"]);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+$out = curl_exec($ch);
+curl_close($ch);
+

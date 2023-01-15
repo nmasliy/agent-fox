@@ -31,6 +31,12 @@
 
     a {
       @include mr(45px);
+
+      transition: transform $transition;
+
+      @include hover {
+        transform: scale(1.05);
+      }
     }
   }
 
@@ -44,6 +50,15 @@
 
     li {
       @include mr(20px);
+    }
+
+    a {
+      display: inline-block;
+      transition: transform $transition;
+
+      @include hover {
+        transform: scale(1.1);
+      }
     }
   }
 
@@ -104,8 +119,6 @@
 
   &__textarea {
     margin-bottom: 30px;
-    min-height: 120px;
-    resize: none;
   }
 
   &__row {
@@ -125,24 +138,6 @@
     margin-right: 30px;
   }
 
-  &__file {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-
-    input {
-      display: none;
-    }
-
-    img {
-      margin-right: 10px;
-    }
-
-    span {
-      color: rgba($main-color, 0.5);
-    }
-  }
-
   &__policy {
     max-width: 500px;
     font-size: 14px;
@@ -154,26 +149,11 @@
       font-weight: 700;
     }
   }
-
-  &__input,
-  &__textarea {
-    border: none;
-    border-radius: 7px;
-    padding: 12px 20px;
-    width: 100%;
-    font: inherit;
-    color: $main-color;
-    background: #f4f6f9;
-
-    &::placeholder {
-      color: rgba($main-color, 0.5);
-    }
-  }
 }
 
 @media screen and (max-width: 1440px) {
   .contacts-form {
-    padding: 30px 140px 20px;
+    padding: 30px 100px 20px;
   }
 
   .contacts {
@@ -201,5 +181,15 @@
       font-size: 18px;
       line-height: 1.2;
     }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .contacts__inner {
+    padding-top: 30px;
+  }
+
+  .contacts-form {
+    padding: 30px;
   }
 }

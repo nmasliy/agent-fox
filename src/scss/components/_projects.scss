@@ -32,6 +32,10 @@
     font-weight: 200;
     font-size: 64px;
     line-height: 60px;
+
+    &-mobile {
+      display: none;
+    }
   }
 
   &__navigation {
@@ -149,6 +153,143 @@
 
     @include hover {
       border-color: $accent-color;
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .projects {
+    &__pagination {
+      font-size: 54px;
+      line-height: 56px;
+    }
+
+    &__name {
+      font-size: 32px;
+      line-height: 36px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .projects {
+    &::after {
+      width: 360px;
+      height: 500px;
+    }
+
+    &__inner {
+      padding-top: 40px;
+    }
+
+    &__slider {
+      padding-bottom: 150px;
+      max-height: 100%;
+    }
+
+    &__header {
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    &__btn {
+      position: absolute;
+      left: 50%;
+      bottom: -80px;
+      width: 100%;
+      max-width: 360px;
+      transform: translateX(-50%);
+
+      &::after {
+        content: "о кейсе";
+        margin-left: 5px;
+        font: inherit;
+      }
+    }
+
+    &__info {
+      display: block;
+      margin-bottom: 30px;
+      padding-bottom: 0;
+      max-width: 100%;
+      text-align: center;
+
+      > p {
+        margin-bottom: 0;
+      }
+
+      > ul,
+      .projects__link {
+        display: none;
+      }
+    }
+
+    &__navigation {
+      display: none;
+    }
+
+    &__content {
+      margin: 0;
+      width: 100%;
+
+      picture {
+        justify-content: center;
+      }
+
+      img {
+        width: auto;
+        max-height: 40vh;
+      }
+    }
+
+    &__item {
+      flex-direction: column-reverse;
+    }
+
+    &__pagination {
+      margin: 0 0 0 20px;
+      font-size: 36px;
+      line-height: 40px;
+    }
+
+    .projects__pagination-mobile {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 45px;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+
+      .swiper-pagination-bullet {
+        width: 6px;
+        height: 6px;
+        background-color: rgba($white-color, 0.25);
+
+        &.swiper-pagination-bullet-active {
+          background-color: $accent-color;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .projects {
+    &__name {
+      margin-bottom: 15px;
+      font-size: 24px;
+      line-height: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .projects {
+    &__title,
+    &__pagination {
+      font-size: 32px;
     }
   }
 }

@@ -33,7 +33,12 @@ export const validateForms = (selector, rules, afterSend) => {
     }
   }
 
-  const validation = new JustValidate(selector);
+  const validation = new JustValidate(selector, {
+    errorLabelStyle: {
+      color: '#c30303',
+    },
+    errorLabelCssClass: 'form__error',
+  });
 
   for (let item of rules) {
     validation.addField(item.ruleSelector, item.rules);
@@ -50,7 +55,6 @@ export const validateForms = (selector, rules, afterSend) => {
           if (afterSend) {
             afterSend();
           }
-          console.log('Отправлено');
         }
       }
     };

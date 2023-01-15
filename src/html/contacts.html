@@ -7,7 +7,7 @@
             class="color-gradient">сколько
             это
             стоит</span></h4>
-        <form class="contacts__form contacts-form" action="#" method="POST" enctype="multipart/form-data">
+        <form class="contacts__form form contacts-form" action="#" method="POST" enctype="multipart/form-data">
           <div class="contacts-form__head">
             <div class="contacts-form__title">Выберите услугу</div>
             <div class="contacts-form__select">
@@ -19,17 +19,23 @@
               </select>
             </div>
           </div>
-          <textarea class="contacts-form__textarea" name="Описание" id="contacts-description"
+          <textarea class="contacts-form__textarea form__textarea" name="Описание"
             placeholder="Опишите задачи и цели проекта"></textarea>
           <div class="contacts-form__row">
-            <input class="contacts-form__input input-name" name="Имя" type="text" placeholder="Имя">
-            <input class="contacts-form__input input-tel" name="Телефон" type="tel" placeholder="Телефон">
-            <input class="contacts-form__input input-email" name="Email" type="mail" placeholder="Email">
+            <label class="form__label">
+              <input class="form__input form__input--name" name="Имя" type="text" placeholder="Имя">
+            </label>
+            <label class="form__label">
+              <input class="form__input form__input--tel" name="Телефон" type="tel" placeholder="Телефон">
+            </label>
+            <label class="form__label">
+              <input class="form__input form__input--email" name="Email" type="mail" placeholder="Email">
+            </label>
           </div>
           <div class="contacts-form__buttons">
             <button class="contacts-form__btn btn btn--primary" type="submit">Отправить заявку</button>
-            <label class="contacts-form__file">
-              <input type="file" id="file" type="file" name="file[]" multiple>
+            <label class="form__file">
+              <input type="file" id="file" type="file" name="file">
               <img src="img/add-icon.svg" alt="Прикрепить ТЗ или бриф">
               <span>Прикрепить ТЗ или бриф</span>
             </label>

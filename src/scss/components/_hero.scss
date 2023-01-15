@@ -48,7 +48,8 @@
   }
 
   &__bg-img {
-    &-lg {
+    &-lg,
+    &-mobile {
       display: none;
     }
   }
@@ -117,15 +118,139 @@
 
 @media screen and (max-width: 1024px) {
   .hero {
+    &__title {
+      max-width: 350px;
+      font-size: 48px;
+    }
+
+    &__inner {
+      align-items: center;
+      padding-bottom: 350px;
+    }
+
+    &__bg-img-mobile {
+      position: absolute;
+      left: 0;
+      bottom: -100px;
+      z-index: -1;
+      display: block;
+      width: 1000px;
+      max-width: none;
+    }
+
+    &__bg-img-wrapper {
+      display: none;
+    }
+
+    &__img {
+      right: 0;
+      bottom: -40px;
+
+      img {
+        width: 555px;
+      }
+    }
+
+    &__text {
+      display: none;
+    }
+
+    &__subtitle {
+      margin-bottom: 30px;
+    }
+
     &__bg-title {
-      bottom: 40px;
-      font-size: 460px;
+      bottom: -11px;
+      font-size: 260px;
 
       &--1 {
-        top: 80px;
-        bottom: auto;
-        font-size: 250px;
+        top: auto;
+        bottom: 200px;
+        font-size: 150px;
       }
+    }
+
+    &__bg-img,
+    &__bg-img-lg {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    &__img {
+      right: -20px;
+      bottom: -25px;
+
+      img {
+        width: 455px;
+      }
+    }
+
+    &__bg-img-mobile {
+      left: auto;
+      right: -208px;
+      bottom: -164px;
+    }
+
+    &__bg-title {
+      bottom: -21px;
+      font-size: 210px;
+
+      &--1 {
+        top: auto;
+        bottom: 142px;
+        font-size: 115px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .hero {
+    &__btn-wrapper {
+      display: block;
+    }
+
+    &__btn {
+      width: 100%;
+    }
+
+    &__bg-img-mobile {
+      left: -86px;
+      right: auto;
+      bottom: 0;
+      width: 700px;
+    }
+
+    &__bg-title {
+      left: -20px;
+    }
+
+    &__img {
+      right: -40px;
+      bottom: -25px;
+
+      img {
+        max-width: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .hero {
+    &__bg-img-mobile {
+      width: 621px;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .hero {
+    &__title {
+      font-size: 40px;
     }
   }
 }

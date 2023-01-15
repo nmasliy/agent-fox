@@ -2,19 +2,24 @@ import { validateForms } from '../functions/validate-forms';
 
 const rules = [
   {
-    ruleSelector: '.input-name',
+    ruleSelector: '.form__input--name',
     rules: [
       {
         rule: 'required',
         value: true,
         errorMessage: 'Заполните имя!'
-      }
+      },
+      {
+        rule: 'customRegexp',
+        value: /^([^0-9]*)$/,
+        errorMessage: 'В имени не должно быть цифр!'
+      },
     ]
   },
   {
-    ruleSelector: '.input-tel',
+    ruleSelector: '.form__input--tel',
     tel: true,
-    telError: 'Введите корректный телефон',
+    telError: 'Введите корректный телефон!',
     rules: [
       {
         rule: 'required',
@@ -24,7 +29,7 @@ const rules = [
     ]
   },
   {
-    ruleSelector: '.input-email',
+    ruleSelector: '.form__input--email',
     rules: [
       {
         rule: 'required',
@@ -38,6 +43,23 @@ const rules = [
       }
     ]
   },
+  // {
+  //   ruleSelector: '.form__input--file',
+  //   rules: [
+  //     {
+  //     rule: 'files',
+  //     value: {
+  //       files: {
+  //         extensions: ['jpeg', 'png'],
+  //         maxSize: 25000,
+  //         minSize: 1000,
+  //         types: ['image/jpeg', 'image/png'],
+  //       },
+  //     },
+  //     errorMessage: 'Нельзя прикрепить файл с таким расширением!'
+  //   }
+  // ]
+  // },
 ];
 
 const afterSend = () => {

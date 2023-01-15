@@ -1,3 +1,5 @@
+import { MOBILE_BREAKPOINT } from '../_vars';
+
 (function () {
   const $html = document.querySelector('html');
   const $menu = document?.querySelector('.header__menu');
@@ -5,13 +7,12 @@
   const $overlay = document?.querySelector('.header-overlay');
   const $menuItems = document?.querySelectorAll('.header__nav li a');
   const TRANSITION_DELAY = 400;
-  const MOBILE_MENU_BREAKPOINT = 1024;
 
   let isInit = false;
 
   const checkScreenWidth = () => {
     // Активируем меню только на экранах <= 1024
-    if ($menu && window.innerWidth <= MOBILE_MENU_BREAKPOINT && !isInit) {
+    if ($menu && window.innerWidth <= MOBILE_BREAKPOINT && !isInit) {
       isInit = true;
       $burger.addEventListener('click', toggleMenu);
       $overlay?.addEventListener('click', closeMenu);
