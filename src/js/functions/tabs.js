@@ -1,5 +1,5 @@
 (function () {
-  const tabTriggerNodes = document.querySelectorAll('.services__name');
+  const tabTriggerNodes = document.querySelectorAll('.services__item');
 
   if (tabTriggerNodes.length > 0) {
     tabTriggerNodes.forEach((triggerNode) => {
