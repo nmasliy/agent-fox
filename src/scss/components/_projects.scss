@@ -64,6 +64,10 @@
     }
   }
 
+  &__content-link {
+    display: block;
+  }
+
   &__info {
     display: flex;
     flex-direction: column;
