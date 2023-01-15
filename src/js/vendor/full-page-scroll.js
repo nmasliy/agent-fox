@@ -4,6 +4,28 @@
  (function () {
 	'use strict';
 
+  const servicesNode = document.querySelector('.services');
+  let isServicesScrolled = true;
+  const hasServicesVerScroll= servicesNode.scrollHeight > servicesNode.clientHeight;
+
+  if (hasServicesVerScroll) {
+
+    servicesNode.addEventListener('scroll', e => {
+      isServicesScrolled = false;
+      // если блок services проскроллен вниз, можно скроллить секцию
+      const isBottomPosition = Math.abs(servicesNode.scrollHeight - servicesNode.clientHeight - servicesNode.scrollTop) < 1;
+      if (isBottomPosition || servicesNode.scrollTop === 0) {
+        setTimeout(() => {
+          isServicesScrolled = true;
+        }, 30)
+      } else {
+        setTimeout(() => {
+          isServicesScrolled = true;
+        }, 30)
+      }
+    })
+  }
+
 	/**
 	 * Full scroll main function
 	 */
@@ -180,6 +202,7 @@
 
 		this.touchEnd = function (event) {
       if (document.querySelector('.header__menu.is-active')) return;
+      if (+_self.defaults.currentPosition === 2 && !isServicesScrolled) return;
 
 			mTouchEnd = parseInt(event.changedTouches[0].clientY);
 			if (mTouchEnd - mTouchStart > 100 || mTouchStart - mTouchEnd > 100) {

@@ -1,2 +1,2 @@
 // Vendor local files
-import './vendor/full-page-scroll.min';
+import './vendor/full-page-scroll';
