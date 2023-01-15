@@ -68,3 +68,13 @@ const afterSend = () => {
 
 validateForms('.contacts-form', rules, afterSend);
 
+const fileInput = document.querySelector('#file');
+const fileTextNode = document.querySelector('.form__file span');
+
+fileInput.addEventListener('change', (e) => {
+  if (fileInput.files.length > 0) {
+    fileTextNode.textContent = fileInput.files[0].name;
+  } else {
+    fileTextNode.textContent = fileTextNode.dataset.text;
+  }
+})
