@@ -1,12 +1,8 @@
 import SimpleModal from '../functions/modals';
 
 const options = {
-  onOpen: (modal) => {},
-  onClose: (modal) => {},
-  disableScroll: true,
-  transition: 250,
+  transition: 350,
   nested: false,
-  overlayCloseAll: true,
 };
 
 const modals = new SimpleModal(options);

@@ -62,6 +62,93 @@ const rules = [
   // },
 ];
 
+const rulesContacts = [
+  {
+    ruleSelector: '.form__input--name',
+    rules: [
+      {
+        rule: 'required',
+        value: true,
+        errorMessage: 'Заполните имя!'
+      },
+      {
+        rule: 'customRegexp',
+        value: /^([^0-9]*)$/,
+        errorMessage: 'В имени не должно быть цифр!'
+      },
+    ]
+  },
+  {
+    ruleSelector: '.form__input--tel',
+    tel: true,
+    telError: 'Введите корректный телефон!',
+    rules: [
+      {
+        rule: 'required',
+        value: true,
+        errorMessage: 'Заполните телефон!'
+      }
+    ]
+  },
+];
+
+const rulesTender = [
+  {
+    ruleSelector: '.form__input--name',
+    rules: [
+      {
+        rule: 'required',
+        value: true,
+        errorMessage: 'Заполните имя!'
+      },
+      {
+        rule: 'customRegexp',
+        value: /^([^0-9]*)$/,
+        errorMessage: 'В имени не должно быть цифр!'
+      },
+    ]
+  },
+  {
+    ruleSelector: '.form__input--tel',
+    tel: true,
+    telError: 'Введите корректный телефон!',
+    rules: [
+      {
+        rule: 'required',
+        value: true,
+        errorMessage: 'Заполните телефон!'
+      }
+    ]
+  },
+  {
+    ruleSelector: '.form__input--email',
+    rules: [
+      {
+        rule: 'required',
+        value: true,
+        errorMessage: 'Заполните Email!'
+      },
+      {
+        rule: 'email',
+        value: true,
+        errorMessage: 'Введите корректный Email!'
+      }
+    ]
+  },
+  {
+    ruleSelector: '.form__input--tender',
+    rules: [
+      {
+        rule: 'required',
+        value: true,
+        errorMessage: 'Заполните поле!'
+      },
+    ]
+  },
+
+];
+
+
 const fileInput = document.querySelector('#file');
 const fileTextNode = document.querySelector('.form__file span');
 
@@ -79,4 +166,6 @@ const afterSend = () => {
 };
 
 validateForms('.contacts-form', rules, afterSend);
+validateForms('#modal-contact .modal__form', rulesContacts, afterSend);
+validateForms('#modal-tender .modal__form', rulesTender, afterSend);
 

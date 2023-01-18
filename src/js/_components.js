@@ -1,7 +1,6 @@
 import './components/menu';
 import './components/tabs';
-// import './components/accordion';
-// import './components/modals';
+import './components/modals';
 import './components/sliders';
 import './components/fslightbox';
 import './components/validation';

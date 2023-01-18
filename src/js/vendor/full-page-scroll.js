@@ -12,21 +12,25 @@
     scrollableSections.forEach(section => {
       const hasSectionVerticalScroll= section.scrollHeight > section.clientHeight;
 
+      function checkScroll() {
+        allowScroll = false;
+        // если блок проскроллен вниз, можно скроллить секцию
+        const isBottomPosition = Math.abs(section.scrollHeight - section.clientHeight - section.scrollTop) < 1;
+        if (isBottomPosition || section.scrollTop === 0) {
+          setTimeout(() => {
+            allowScroll = true;
+          }, 30)
+        } else {
+          setTimeout(() => {
+            allowScroll = false;
+          }, 30)
+        }
+      }
+
       if (hasSectionVerticalScroll) {
-        section.addEventListener('scroll', e => {
-          allowScroll = false;
-          // если блок проскроллен вниз, можно скроллить секцию
-          const isBottomPosition = Math.abs(section.scrollHeight - section.clientHeight - section.scrollTop) < 1;
-          if (isBottomPosition || section.scrollTop === 0) {
-            setTimeout(() => {
-              allowScroll = true;
-            }, 30)
-          } else {
-            setTimeout(() => {
-              allowScroll = false;
-            }, 30)
-          }
-        })
+        section.addEventListener('scroll', checkScroll)
+        // section.addEventListener('touchstart',  () => allowScroll = false)
+        // section.addEventListener('touchend', checkScroll)
       }
     })
   }
@@ -176,7 +180,7 @@
 		var _self = this;
 
 		this.mouseWheelAndKey = function (event) {
-      if (document.querySelector('.header__menu.is-active') ||
+      if (document.querySelector('.disable-scroll') ||
         !document.querySelector('.hero').dataset.animated ||
         _self.defaults.isAnimate) return;
 

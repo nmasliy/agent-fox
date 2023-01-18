@@ -121,7 +121,8 @@
           <p>С нами любая миссия выполнима!</p>
         </div>
         <div class="hero__btn-wrapper">
-          <a class="hero__btn btn btn--primary btn--lg" href="#">Связаться с It-агентами</a>
+          <a class="hero__btn btn btn--primary btn--lg" data-modal-open="modal-contact" href="#">Связаться с
+            It-агентами</a>
         </div>
       </div>
       <div class="hero__img">
@@ -419,13 +420,13 @@
         <li>Опыт работы с тендерами и госзакупками</li>
         <li>Работа «под ключ»</li>
       </ul>
-      <a class="about__btn btn btn--primary" href="#">Пригласить в тендер</a>
+      <a class="about__btn btn btn--primary" data-modal-open="modal-tender" href="#">Пригласить в тендер</a>
     </div>
   </div>
 </section>
 
     <section class="contacts section section--scroll">
-  <div class="section__inner">
+  <div class="contacts__wrapper section__inner">
     <div class="container">
       <div class="contacts__inner">
         <h3 class="contacts__title section__title"><span class="color-gradient">Обсудим</span> ваш проект?</h3>
@@ -436,8 +437,8 @@
         <form class="contacts__form form contacts-form" action="#" method="POST" enctype="multipart/form-data">
           <div class="contacts-form__head">
             <div class="contacts-form__title">Выберите услугу</div>
-            <div class="contacts-form__select">
-              <select name="Услуга" id="contacts-service">
+            <div class="contacts-form__select-wrapper form__select-wrapper">
+              <select class="form__select" name="Услуга">
                 <option value="Разработка сайта">Разработка сайта</option>
                 <option value="Брендинг и нейминг">Брендинг и нейминг</option>
                 <option value="Продвижение сайтов">Продвижение сайтов</option>
@@ -467,7 +468,7 @@
               <span data-text="Прикрепить ТЗ или бриф">Прикрепить ТЗ или бриф</span>
             </label>
           </div>
-          <div class="contacts-form__policy">Нажимая на кнопку, вы даете согласие на обработку персональных данных и
+          <div class="form__policy">Нажимая на кнопку, вы даете согласие на обработку персональных данных и
             соглашаетесь c <a href="#">политикой конфиденциальности</a></div>
         </form>
         <div class="contacts__bottom">
@@ -504,6 +505,76 @@
 </section>
 
   </div>
+  <div class="modal modal-contact" id="modal-contact" aria-hidden="true">
+  <div class="modal__wrapper">
+    <div class="modal-contact__inner modal__inner">
+      <div class="modal__content">
+        <form method="POST" class="modal__form form">
+          <h5 class="modal__title">Обратная связь</h5>
+          <div class="modal__text">Оставьте свои контактные данные и мы свяжемся с вами в ближайшее время</div>
+          <div class="modal-contact__fields">
+            <label class="form__label">
+              <input class="form__input form__input--name" name="Имя" type="text" placeholder="Имя">
+            </label>
+            <label class="form__label">
+              <input class="form__input form__input--tel" name="Телефон" type="tel" placeholder="Телефон">
+            </label>
+            <button class="modal__btn btn btn--primary" type="submit">Отправить заявку</button>
+          </div>
+          <div class="form__policy text-center">Нажимая на кнопку, вы даете согласие на обработку персональных данных и
+            соглашаетесь c <a href="#">политикой конфиденциальности</a></div>
+          <button class="modal__close" data-modal-close>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1.63716 0.221851L0.222949 1.63606L6.58614 7.99925L0.221438 14.364L1.63565 15.7782L8.00035 9.41347L14.3651 15.7782L15.7793 14.364L9.41457 7.99926L15.7778 1.63603L14.3636 0.221821L8.00035 6.58504L1.63716 0.221851Z" fill="#B0B6C5"/>
+</svg>
+
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-tender" id="modal-tender" aria-hidden="true">
+  <div class="modal__wrapper">
+    <div class="modal__inner">
+      <div class="modal__content">
+        <form method="POST" class="modal__form form">
+          <h5 class="modal__title">Пригласить в тендер</h5>
+          <div class="modal__text">Оставьте свои контактные данные и мы свяжемся с вами в ближайшее время</div>
+          <div class="modal-tender__row">
+            <label class="form__label">
+              <input class="form__input form__input--name" name="Имя" type="text" placeholder="Имя">
+            </label>
+            <label class="form__label">
+              <input class="form__input form__input--tel" name="Телефон" type="tel" placeholder="Телефон">
+            </label>
+            <label class="form__label">
+              <input class="form__input form__input--email" name="Email" type="mail" placeholder="Email">
+            </label>
+          </div>
+          <label class="modal-tender__link-field form__label">
+            <input class="form__input form__input--tender" name="Ссылка на тендер" type="text"
+              placeholder="Ссылка на тендер">
+          </label>
+          <div class="modal-tender__footer">
+            <button class="modal__btn btn btn--primary" type="submit">Отправить заявку</button>
+            <div class="form__policy text-center">Нажимая на кнопку, вы даете согласие на обработку персональных данных
+              и
+              соглашаетесь c <a href="#">политикой конфиденциальности</a></div>
+            <button class="modal__close" data-modal-close>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1.63716 0.221851L0.222949 1.63606L6.58614 7.99925L0.221438 14.364L1.63565 15.7782L8.00035 9.41347L14.3651 15.7782L15.7793 14.364L9.41457 7.99926L15.7778 1.63603L14.3636 0.221821L8.00035 6.58504L1.63716 0.221851Z" fill="#B0B6C5"/>
+</svg>
+
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
   <script src="js/main.js"></script>
 </body>
 

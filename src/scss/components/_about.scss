@@ -68,3 +68,23 @@
     background: url("../img/about.png") bottom right / 527px no-repeat, url("../img/about-bg.jpg") center / cover no-repeat;
   }
 }
+
+@media screen and (max-width: 575px) and (max-height: 750px) {
+  .about {
+    background: url("../img/about.png") bottom -110px right / 527px no-repeat, url("../img/about-bg.jpg") center / cover no-repeat;
+
+    &__inner {
+      padding-bottom: 200px;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) and (max-height: 600px) {
+  .about {
+    background: url("../img/about-bg.jpg") center / cover no-repeat;
+
+    &__inner {
+      padding-bottom: 40px;
+    }
+  }
+}
