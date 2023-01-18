@@ -257,7 +257,7 @@
   }
 }
 
-@media screen and (min-height: 1090px) {
+@media screen and (min-height: 1090px) and (min-width: 1920px) {
   .hero {
     &__bg-title {
       bottom: 5%;
