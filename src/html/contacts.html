@@ -1,4 +1,4 @@
-<section class="contacts section">
+<section class="contacts section section--scroll">
   <div class="section__inner">
     <div class="container">
       <div class="contacts__inner">
@@ -13,9 +13,10 @@
             <div class="contacts-form__select">
               <select name="Услуга" id="contacts-service">
                 <option value="Разработка сайта">Разработка сайта</option>
-                <option value="Разработка сайта2">Разработка сайта2</option>
-                <option value="Разработка сайта3">Разработка сайта3</option>
-                <option value="Разработка сайта4">Разработка сайта4</option>
+                <option value="Брендинг и нейминг">Брендинг и нейминг</option>
+                <option value="Продвижение сайтов">Продвижение сайтов</option>
+                <option value="Интернет-реклама">Интернет-реклама</option>
+                <option value="Маркетплейсы">Маркетплейсы</option>
               </select>
             </div>
           </div>
@@ -35,7 +36,7 @@
           <div class="contacts-form__buttons">
             <button class="contacts-form__btn btn btn--primary" type="submit">Отправить заявку</button>
             <label class="form__file">
-              <input type="file" id="file" type="file" name="file">
+              <input type="file" id="file" type="file" name="files[]" multiple>
               <img src="img/add-icon.svg" alt="Прикрепить ТЗ или бриф">
               <span data-text="Прикрепить ТЗ или бриф">Прикрепить ТЗ или бриф</span>
             </label>
@@ -51,13 +52,18 @@
           <div class="contacts__socials">
             <div class="contacts__socials-caption">Пишите нам в мессенджеры</div>
             <ul>
-              <li><a href="#"><img src="img/telegram-icon.svg" width="50" height="50" alt="Telegram"></a></li>
-              <li><a href="#"><img src="img/whatsapp-icon.svg" width="50" height="50" alt="Whatsapp"></a></li>
+              <li><a href="https://tlgg.ru/Vasechka38" target="_blank"><img src="img/telegram-icon.svg" width="50"
+                    height="50" alt="Telegram"></a></li>
+              <li><a href="https://wa.me/79500764355" target="_blank"><img src="img/whatsapp-icon.svg" width="50"
+                    height="50" alt="Whatsapp"></a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
+    <a class="arrow-up" href="#0">
+      <img src="img/arrow-white-icon.svg" width="16" height="22" alt="Вернуться наверх">
+    </a>
     @include('footer.html')
   </div>
 </section>

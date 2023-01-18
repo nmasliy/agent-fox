@@ -17,13 +17,25 @@
       margin-right: 30px;
     }
   }
+
+  &__logo svg {
+    #gradient-fox stop {
+      transition: $transition;
+    }
+
+    @include hover {
+      #gradient-fox stop {
+        stop-color: $main-color;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 1024px) {
   .header {
     padding: 10px 0;
 
-    &__logo img {
+    &__logo svg {
       width: 200px;
     }
 
@@ -51,24 +63,24 @@
         transform: translateX(0);
       }
     }
-  }
 
-  .header-overlay {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 5;
-    display: none;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(#000, 0.5);
-    opacity: 0;
-    transition: $menu-transition;
+    &__overlay {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 5;
+      display: none;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(#000, 0.5);
+      opacity: 0;
+      transition: $menu-transition;
 
-    &.is-active {
-      opacity: 1;
+      &.is-active {
+        opacity: 1;
+      }
     }
   }
 }

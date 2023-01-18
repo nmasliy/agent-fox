@@ -27,7 +27,8 @@
 
         &::after {
           background-position: center right;
-          opacity: 1;
+          /* stylelint-disable-next-line no-unknown-animations */
+          animation: 2s arrow-pulse forwards ease;
         }
       }
     }
@@ -65,7 +66,7 @@
       top: 50%;
       width: 32px;
       height: 16px;
-      background: url("../img/arrow-orange-icon.svg") center right -40px no-repeat;
+      background: url("../img/arrow-orange-icon.svg") center right 140px no-repeat;
       opacity: 0;
       transform: translateY(-50%);
       transition: $transition;
@@ -145,13 +146,6 @@
 
 @media screen and (max-width: 1024px) {
   .services {
-    overflow: auto;
-    height: 100%;
-
-    > .container {
-      height: auto;
-    }
-
     &__inner {
       padding: 20px 0;
     }

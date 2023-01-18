@@ -38,7 +38,7 @@
   &--arrow {
     border: 1px solid $accent-color;
     padding: 15px 50px 15px 20px;
-    background: url("../img/arrow-icon.svg") center right 18px no-repeat;
+    background: url("../img/arrow-icon.svg") center right 22px no-repeat;
 
     @include hover {
       box-shadow: 0 0 4px $accent-color;

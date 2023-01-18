@@ -4,7 +4,7 @@ import { MOBILE_BREAKPOINT } from '../_vars';
   const $html = document.querySelector('html');
   const $menu = document?.querySelector('.header__menu');
   const $burger = document?.querySelector('.burger');
-  const $overlay = document?.querySelector('.header-overlay');
+  const $overlay = document?.querySelector('.header__overlay');
   const $menuItems = document?.querySelectorAll('.header__nav li a');
   const TRANSITION_DELAY = 400;
 

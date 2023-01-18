@@ -4,27 +4,34 @@
  (function () {
 	'use strict';
 
-  const servicesNode = document.querySelector('.services');
-  let isServicesScrolled = true;
-  const hasServicesVerScroll= servicesNode.scrollHeight > servicesNode.clientHeight;
+  let allowScroll = true;
 
-  if (hasServicesVerScroll) {
+  function initScrollableSections() {
+    const scrollableSections = document.querySelectorAll('.section--scroll');
 
-    servicesNode.addEventListener('scroll', e => {
-      isServicesScrolled = false;
-      // если блок services проскроллен вниз, можно скроллить секцию
-      const isBottomPosition = Math.abs(servicesNode.scrollHeight - servicesNode.clientHeight - servicesNode.scrollTop) < 1;
-      if (isBottomPosition || servicesNode.scrollTop === 0) {
-        setTimeout(() => {
-          isServicesScrolled = true;
-        }, 30)
-      } else {
-        setTimeout(() => {
-          isServicesScrolled = true;
-        }, 30)
+    scrollableSections.forEach(section => {
+      const hasSectionVerticalScroll= section.scrollHeight > section.clientHeight;
+
+      if (hasSectionVerticalScroll) {
+        section.addEventListener('scroll', e => {
+          allowScroll = false;
+          // если блок проскроллен вниз, можно скроллить секцию
+          const isBottomPosition = Math.abs(section.scrollHeight - section.clientHeight - section.scrollTop) < 1;
+          if (isBottomPosition || section.scrollTop === 0) {
+            setTimeout(() => {
+              allowScroll = true;
+            }, 30)
+          } else {
+            setTimeout(() => {
+              allowScroll = false;
+            }, 30)
+          }
+        })
       }
     })
   }
+
+  initScrollableSections();
 
 	/**
 	 * Full scroll main function
@@ -53,11 +60,11 @@
 			animateFunction : params.animateFunction || 'ease',
 			maxPosition: sections.length - 1,
 			currentPosition: 0,
+      isAnimate: false,
 			displayDots: typeof params.displayDots != 'undefined' ? params.displayDots : true,
 			dotsPosition: params.dotsPosition || 'left',
       onSlideChangeCustom: () => {},
       onSlideChange: (payload) => {
-        // console.log(payload);
         this.onSlideChangeCustom(payload);
       }
 		};
@@ -169,7 +176,9 @@
 		var _self = this;
 
 		this.mouseWheelAndKey = function (event) {
-      if (document.querySelector('.header__menu.is-active')) return;
+      if (document.querySelector('.header__menu.is-active') ||
+        !document.querySelector('.hero').dataset.animated ||
+        _self.defaults.isAnimate) return;
 
       let current = +_self.defaults.currentPosition;
       let position = 0;
@@ -202,7 +211,8 @@
 
 		this.touchEnd = function (event) {
       if (document.querySelector('.header__menu.is-active')) return;
-      if (+_self.defaults.currentPosition === 2 && !isServicesScrolled) return;
+      if (+_self.defaults.currentPosition === 2 && !allowScroll) return;
+      if (_self.defaults.isAnimate) return;
 
 			mTouchEnd = parseInt(event.changedTouches[0].clientY);
 			if (mTouchEnd - mTouchStart > 100 || mTouchStart - mTouchEnd > 100) {
@@ -223,9 +233,14 @@
 
 		this.hashChange = function (event) {
 			if (location) {
-				var anchor = location.hash.replace('#', '').split('/')[0];
+        var anchor = location.hash.replace('#', '').split('/')[0];
 				if (anchor !== "") {
-					if (anchor < 0) {
+          if (anchor == 0) {
+            _self.defaults.onSlideChange({fromPosition: anchor, toPosition: 0});
+            _self.defaults.currentPosition = anchor;
+						_self.animateScroll();
+          }
+					else if (anchor < 0) {
 						_self.changeCurrentPosition(0);
 					} else if (anchor > _self.defaults.maxPosition) {
 						_self.changeCurrentPosition(_self.defaults.maxPosition);
@@ -256,6 +271,7 @@
 		};
 
 		this.animateScroll = function () {
+      this.defaults.isAnimate = true;
 			var animateTime = this.defaults.animateTime;
 			var animateFunction = this.defaults.animateFunction;
 			var position = this.defaults.currentPosition * 100;
@@ -275,10 +291,11 @@
 					this.ul.childNodes[i].firstChild.className = this.updateClass(1, 'active', this.ul.childNodes[i].firstChild.className);
 				}
 			}
+      setTimeout(() => this.defaults.isAnimate = false, animateTime * 1000)
 		};
 
 		this.changeCurrentPosition = function (position) {
-			if (position !== "") {
+			if (position !== "" && !this.defaults.isAnimate) {
 				_self.defaults.currentPosition = position;
 				location.hash = _self.defaults.currentPosition;
 			}

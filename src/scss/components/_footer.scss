@@ -10,6 +10,7 @@
 
   &__inner {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
   }
@@ -26,5 +27,32 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 1;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    &__inner {
+      padding-right: 70px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    &__inner {
+      display: block;
+      padding-right: 0;
+      text-align: center;
+    }
+
+    &__link {
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    &__text {
+      @include mb(20px);
+    }
   }
 }

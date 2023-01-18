@@ -32,7 +32,7 @@
   &__img {
     position: absolute;
     right: -100px;
-    bottom: 0;
+    bottom: -45px;
   }
 
   &__btn-wrapper {
@@ -100,10 +100,26 @@
   }
 }
 
-@media screen and (max-width: 1281px) {
+@media screen and (max-width: 1280px) {
   .hero {
     &__bg-img-wrapper {
-      right: -380px;
+      right: -300px;
+    }
+
+    &__img {
+      right: -50px;
+
+      img {
+        width: 700px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .hero {
+    &__bg-img-wrapper {
+      right: -410px;
     }
 
     &__img {
@@ -180,12 +196,7 @@
 @media screen and (max-width: 768px) {
   .hero {
     &__img {
-      right: -20px;
-      bottom: -25px;
-
-      img {
-        width: 455px;
-      }
+      display: none;
     }
 
     &__bg-img-mobile {
@@ -226,15 +237,6 @@
 
     &__bg-title {
       left: -20px;
-    }
-
-    &__img {
-      right: -40px;
-      bottom: -25px;
-
-      img {
-        max-width: none;
-      }
     }
   }
 }

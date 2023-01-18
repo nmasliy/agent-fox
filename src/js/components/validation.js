@@ -62,12 +62,6 @@ const rules = [
   // },
 ];
 
-const afterSend = () => {
-  // console.log('Произошла отправка, тут можно писать любые действия');
-};
-
-validateForms('.contacts-form', rules, afterSend);
-
 const fileInput = document.querySelector('#file');
 const fileTextNode = document.querySelector('.form__file span');
 
@@ -78,3 +72,11 @@ fileInput.addEventListener('change', (e) => {
     fileTextNode.textContent = fileTextNode.dataset.text;
   }
 })
+
+const afterSend = () => {
+  fileInput.value = "";
+  fileTextNode.textContent = fileTextNode.dataset.text;
+};
+
+validateForms('.contacts-form', rules, afterSend);
+
