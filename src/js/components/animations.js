@@ -44,6 +44,8 @@ function initAnimations() {
       tl.to(".hero", { y: 0,  filter:"blur(0)",  duration: 0.5, ease: "power2.out" });
       tl.to(".hero__img", { x: 0, y: 0,  filter:"blur(0)",  duration: 0.5, ease: "power2.out" }, "-=0.2");
     }
+    if (toPosition === 0) gsap.to(".arrow-up", { opacity: 0 });
+    else gsap.to(".arrow-up", { opacity: 1 });
   })
 
   navListItemNodes.forEach(listItemNode => { // Анимация первого экране при навигации по секция через меню

@@ -18,10 +18,10 @@ const projectsSlider = new Swiper(projectsSliderNode, {
   pagination: {
     el: '.projects__pagination-mobile',
   },
-  mousewheel: {
-    eventsTarget: '.projects',
-    releaseOnEdges: true,
-  },
+  // mousewheel: {
+  //   eventsTarget: '.projects',
+  //   releaseOnEdges: true,
+  // },
   on: {
     slideChange: () => {
       paginationNode.textContent = `${addZero(projectsSlider.realIndex + 1)} / ${addZero(projectsSlidesCount)}`;
