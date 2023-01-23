@@ -48,11 +48,15 @@ function initAnimations() {
     else gsap.to(".arrow-up", { opacity: 1 });
   })
 
-  navListItemNodes.forEach(listItemNode => { // Анимация первого экране при навигации по секция через меню
+  navListItemNodes.forEach(listItemNode => { // Анимация первого экране при навигации по секциям через меню
     listItemNode.addEventListener('click', () => {
       tl.to(".hero__img", { x: 1200, y: 500,  filter:"blur(2px)",  duration: 0.6, ease: "power2.in" });
       tl.to(".hero", { y: -300,  filter:"blur(1px)",  duration: 0.5, ease: "power2.in" }, "-=0.5");
     })
   })
+}
+
+if (+fullpage.defaults.currentPosition !== 0) {
+  gsap.to(".arrow-up", { opacity: 1 });
 }
 
