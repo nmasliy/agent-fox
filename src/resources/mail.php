@@ -62,13 +62,14 @@ try {
   // Настройки вашей почты
   $mail->Host       = 'smtp.gmail.com'; // SMTP сервера вашей почты
   $mail->Username   = 'deckards2505@gmail.com'; // Логин на почте
-  $mail->Password   = 'pbdrsosdrvnnqhxz'; // Пароль на почте
+  $mail->Password   = 'erxylrpvmfnhmcwz'; // Пароль SMTP
   $mail->SMTPSecure = 'ssl';
   $mail->Port       = 465;
 
-  $mail->setFrom('deckards2505@gmail.com', 'Заявка с вашего сайта'); // Адрес самой почты и имя отправителя
+  $mail->setFrom('adv.agentfox@gmail.com', 'Заявка с вашего сайта agentfox'); // Адрес самой почты и имя отправителя
 
   // Получатель письма
+  $mail->addAddress('adv.agentfox@gmail.com');
   $mail->addAddress('deckards2505@gmail.com');
   // $mail->addAddress('blablablal');
 
