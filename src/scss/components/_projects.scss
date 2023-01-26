@@ -75,7 +75,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-bottom: 80px;
+    padding-bottom: 60px;
     max-width: 260px;
     font-weight: 300;
 
@@ -135,6 +135,10 @@
     transform: translate(-50%, -50%);
   }
 
+  &__btn {
+    margin-bottom: 15px;
+  }
+
   &__prev,
   &__next {
     border: 1px solid #b0b6c5;
@@ -166,6 +170,18 @@
 
 @media screen and (max-width: 1440px) {
   .projects {
+    &__inner {
+      padding-top: 40px;
+    }
+
+    &__info {
+      padding-bottom: 40px;
+
+      > p {
+        margin-bottom: 30px;
+      }
+    }
+
     &__pagination {
       font-size: 54px;
       line-height: 56px;

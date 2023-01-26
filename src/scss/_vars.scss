@@ -5,6 +5,7 @@
   --container-width: calc(var(--content-width) + var(--container-offset));
 }
 
+$index: calc(1vw + 1vh);
 $font-family: "SuisseIntl", sans-serif;
 $transition: 0.25s ease-in-out;
 $menu-transition: 0.35s ease-in-out;
