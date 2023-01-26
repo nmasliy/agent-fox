@@ -2,61 +2,117 @@
   <div class="contacts__wrapper section__inner">
     <div class="container">
       <div class="contacts__inner">
-        <h3 class="contacts__title section__title"><span class="color-gradient">Обсудим</span> ваш проект?</h3>
-        <h4 class="contacts__subtitle section__subtitle">Вам, наверняка, было интересно, <span
-            class="color-gradient">сколько
-            это
-            стоит</span></h4>
-        <form class="contacts__form form contacts-form" action="#" method="POST" enctype="multipart/form-data">
-          <div class="contacts-form__head">
-            <div class="contacts-form__title">Выберите услугу</div>
-            <div class="contacts-form__select-wrapper form__select-wrapper">
-              <select class="form__select" name="Услуга">
-                <option value="Разработка сайта">Разработка сайта</option>
-                <option value="Брендинг и нейминг">Брендинг и нейминг</option>
-                <option value="Продвижение сайтов">Продвижение сайтов</option>
-                <option value="Интернет-реклама">Интернет-реклама</option>
-                <option value="Маркетплейсы">Маркетплейсы</option>
-              </select>
+        <h3 class="contacts__title section__title">
+          <span class="color-gradient">Обсудим</span> ваш проект?
+        </h3>
+        <h4 class="contacts__subtitle section__subtitle">
+          Вам, наверняка, было интересно,
+          <span class="color-gradient">сколько это стоит</span>
+        </h4>
+        <div class="contacts__row">
+          <form
+            class="contacts__form form contacts-form"
+            action="#"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="contacts-form__head">
+              <div class="contacts-form__title">Выберите услугу</div>
+              <div class="contacts-form__select-wrapper form__select-wrapper">
+                <select class="form__select" name="Услуга">
+                  <option value="Разработка сайта">Разработка сайта</option>
+                  <option value="Брендинг и нейминг">Брендинг и нейминг</option>
+                  <option value="Продвижение сайтов">Продвижение сайтов</option>
+                  <option value="Интернет-реклама">Интернет-реклама</option>
+                  <option value="Маркетплейсы">Маркетплейсы</option>
+                </select>
+              </div>
             </div>
-          </div>
-          <textarea class="contacts-form__textarea form__textarea" name="Описание"
-            placeholder="Опишите задачи и цели проекта"></textarea>
-          <div class="contacts-form__row">
-            <label class="form__label">
-              <input class="form__input form__input--name" name="Имя" type="text" placeholder="Имя">
-            </label>
-            <label class="form__label">
-              <input class="form__input form__input--tel" name="Телефон" type="tel" placeholder="Телефон">
-            </label>
-            <label class="form__label">
-              <input class="form__input form__input--email" name="Email" type="mail" placeholder="Email">
-            </label>
-          </div>
-          <div class="contacts-form__buttons">
-            <button class="contacts-form__btn btn btn--primary" type="submit">Отправить заявку</button>
-            <label class="form__file">
-              <input type="file" id="file" type="file" name="files[]" multiple>
-              <img src="img/add-icon.svg" alt="Прикрепить ТЗ или бриф">
-              <span data-text="Прикрепить ТЗ или бриф">Прикрепить ТЗ или бриф</span>
-            </label>
-          </div>
-          <div class="form__policy">Нажимая на кнопку, вы даете согласие на обработку персональных данных и
-            соглашаетесь c <a href="#">политикой конфиденциальности</a></div>
-        </form>
-        <div class="contacts__bottom">
-          <div class="contacts__items">
-            <a href="tel:+73952654888">+7 (3952) 654-888</a>
-            <a href="mailto:client@agent-fox.ru">client@agent-fox.ru</a>
-          </div>
-          <div class="contacts__socials">
-            <div class="contacts__socials-caption">Пишите нам в мессенджеры</div>
-            <ul>
-              <li><a href="https://tlgg.ru/Vasechka38" target="_blank"><img src="img/telegram-icon.svg" width="50"
-                    height="50" alt="Telegram"></a></li>
-              <li><a href="https://wa.me/79500764355" target="_blank"><img src="img/whatsapp-icon.svg" width="50"
-                    height="50" alt="Whatsapp"></a></li>
-            </ul>
+            <textarea
+              class="contacts-form__textarea form__textarea"
+              name="Описание"
+              placeholder="Опишите задачи и цели проекта"
+            ></textarea>
+            <div class="contacts-form__row">
+              <label class="form__label">
+                <input
+                  class="form__input form__input--name"
+                  name="Имя"
+                  type="text"
+                  placeholder="Имя"
+                />
+              </label>
+              <label class="form__label">
+                <input
+                  class="form__input form__input--tel"
+                  name="Телефон"
+                  type="tel"
+                  placeholder="Телефон"
+                />
+              </label>
+              <label class="form__label">
+                <input
+                  class="form__input form__input--email"
+                  name="Email"
+                  type="mail"
+                  placeholder="Email"
+                />
+              </label>
+            </div>
+            <div class="contacts-form__buttons">
+              <button class="contacts-form__btn btn btn--primary" type="submit">
+                Отправить заявку
+              </button>
+              <label class="form__file">
+                <input
+                  type="file"
+                  id="file"
+                  type="file"
+                  name="files[]"
+                  multiple
+                />
+                <img src="img/add-icon.svg" alt="Прикрепить ТЗ или бриф" />
+                <span data-text="Прикрепить ТЗ или бриф"
+                  >Прикрепить ТЗ или бриф</span
+                >
+              </label>
+            </div>
+            <div class="form__policy">
+              Нажимая на кнопку, вы даете согласие на обработку персональных
+              данных и соглашаетесь c
+              <a href="#">политикой конфиденциальности</a>
+            </div>
+          </form>
+          <div class="contacts__bottom">
+            <div class="contacts__items">
+              <a href="tel:+73952654888">+7 (3952) 654-888</a>
+              <a href="mailto:client@agent-fox.ru">client@agent-fox.ru</a>
+            </div>
+            <div class="contacts__socials">
+              <div class="contacts__socials-caption">
+                Пишите нам в мессенджеры
+              </div>
+              <ul>
+                <li>
+                  <a href="https://tlgg.ru/Vasechka38" target="_blank"
+                    ><img
+                      src="img/telegram-icon.svg"
+                      width="50"
+                      height="50"
+                      alt="Telegram"
+                  /></a>
+                </li>
+                <li>
+                  <a href="https://wa.me/79500764355" target="_blank"
+                    ><img
+                      src="img/whatsapp-icon.svg"
+                      width="50"
+                      height="50"
+                      alt="Whatsapp"
+                  /></a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
