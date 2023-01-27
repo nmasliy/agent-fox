@@ -14,7 +14,7 @@
   &__title {
     margin-bottom: 20px;
     font-weight: 900;
-    font-size: 96px; // font-size: calc($index * 3.4);
+    font-size: 96px;
     line-height: 1;
     text-transform: uppercase;
   }
@@ -79,12 +79,17 @@
 
 @media screen and (max-width: 1440px) {
   .hero {
+    &__subtitle {
+      font-size: 36px;
+      line-height: 1.4;
+    }
+
     &__title {
-      font-size: 82px;
+      font-size: 80px;
     }
 
     &__text {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
     &__bg-title {
@@ -126,13 +131,13 @@
       right: -50px;
 
       img {
-        width: 600px;
+        width: 640px;
       }
     }
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 960px) {
   .hero {
     &__title {
       max-width: 350px;
@@ -173,6 +178,8 @@
 
     &__subtitle {
       margin-bottom: 30px;
+      font-size: 24px;
+      line-height: 1.25;
     }
 
     &__bg-title {

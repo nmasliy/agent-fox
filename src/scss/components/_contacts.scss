@@ -132,10 +132,6 @@
 }
 
 @media screen and (max-width: 1440px) {
-  .contacts-form {
-    padding: 30px 20px 10px;
-  }
-
   .contacts {
     &__subtitle {
       margin-bottom: 20px;
@@ -197,6 +193,7 @@
   }
 
   .contacts-form {
+    padding: 30px 20px 10px;
     font-size: 16px;
 
     &__textarea {
@@ -301,6 +298,14 @@
       width: 100%;
       max-width: 450px;
     }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .contacts {
+    background:
+      linear-gradient(180deg, #080513 9.9%, rgba(14, 4, 28, 50%) 141.23%),
+      url("../img/contacts-bg-mob.jpg") center bottom 85px / cover no-repeat;
   }
 }
 

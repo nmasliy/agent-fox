@@ -249,7 +249,7 @@
 					} else if (anchor > _self.defaults.maxPosition) {
 						_self.changeCurrentPosition(_self.defaults.maxPosition);
 					} else {
-            _self.defaults.onSlideChange({fromPosition: _self.defaults.currentPosition, toPosition: anchor});
+            _self.defaults.onSlideChange({fromPosition: _self.defaults.currentPosition, toPosition: +anchor});
 						_self.defaults.currentPosition = anchor;
 						_self.animateScroll();
 					}

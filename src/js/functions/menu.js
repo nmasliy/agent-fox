@@ -1,29 +1,18 @@
-import { MOBILE_BREAKPOINT } from '../_vars';
-
 (function () {
   const $html = document.querySelector('html');
-  const $menu = document?.querySelector('.header__menu');
+  const $menu = document?.querySelector('.menu');
   const $burger = document?.querySelector('.burger');
-  const $overlay = document?.querySelector('.header__overlay');
-  const $menuItems = document?.querySelectorAll('.header__nav li a');
+  const $overlay = document?.querySelector('.overlay');
+  const $menuItems = document?.querySelectorAll('.nav li a');
   const TRANSITION_DELAY = 400;
 
-  let isInit = false;
-
-  const checkScreenWidth = () => {
-    // Активируем меню только на экранах <= 1024
-    if ($menu && window.innerWidth <= MOBILE_BREAKPOINT && !isInit) {
-      isInit = true;
-      $burger.addEventListener('click', toggleMenu);
-      $overlay?.addEventListener('click', closeMenu);
-      $menuItems.forEach((el) => {
-        el.addEventListener('click', closeMenu);
-      });
-    } else {
-      window.addEventListener('resize', checkScreenWidth);
-    }
-  };
-  checkScreenWidth();
+  if ($menu) {
+    $burger.addEventListener('click', toggleMenu);
+    $overlay?.addEventListener('click', closeMenu);
+    $menuItems.forEach((el) => {
+      el.addEventListener('click', closeMenu);
+    });
+  }
 
   function openMenu() {
     $overlay.style.display = 'block';

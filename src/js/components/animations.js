@@ -2,6 +2,7 @@ import { gsap } from "gsap";
 import { MOBILE_BREAKPOINT } from '../_vars';
 
 const heroSection = document.querySelector('.hero');
+const burger = document.querySelector('.burger');
 
 if (heroSection) {
   initAnimations();
@@ -35,8 +36,7 @@ function initAnimations() {
   tl.from(".hero__btn-wrapper", { scale: 0,  duration: 0.3, ease: "power2.out" }, '-=0.3')
   .then(() => heroSection.dataset.animated = true);
 
-
-  fullpage.onSlideChangeCustom = (({fromPosition, toPosition}) => { // Анимация появления и исчезания первого экрана
+  fullpage.onSlideChangeCustom = ({fromPosition, toPosition}) => { // Анимация появления и исчезания первого экрана
     if (fromPosition === 0 && toPosition === 1) {
       tl.to(".hero__img", { x: 1200, y: 500,  filter:"blur(2px)",  duration: 0.6, ease: "power2.in" });
       tl.to(".hero", { y: -300,  filter:"blur(1px)",  duration: 0.5, ease: "power2.in" }, "-=0.5");
@@ -46,7 +46,27 @@ function initAnimations() {
     }
     if (toPosition === 0) gsap.to(".arrow-up", { opacity: 0 });
     else gsap.to(".arrow-up", { opacity: 1 });
-  })
+    
+    
+    if (window.innerWidth > MOBILE_BREAKPOINT) {
+      burger.style.transitionDelay = '0.65s';
+      setTimeout(() => burger.style.transitionDelay = '', 650)
+    }
+
+    if (toPosition !== 0 || window.innerWidth <= MOBILE_BREAKPOINT) {
+      burger.classList.add('is-visible');
+      if (toPosition !== 2 && toPosition !== 0) {
+        burger.classList.add('is-white');
+      } else {
+        burger.classList.remove('is-white');
+      }
+    } else {
+      if (window.innerWidth > MOBILE_BREAKPOINT) {
+        burger.classList.remove('is-visible');
+      }
+    }
+
+  }
 
   navListItemNodes.forEach(listItemNode => { // Анимация первого экране при навигации по секциям через меню
     listItemNode.addEventListener('click', () => {
@@ -58,5 +78,10 @@ function initAnimations() {
 
 if (+fullpage.defaults.currentPosition !== 0) {
   gsap.to(".arrow-up", { opacity: 1 });
+  burger.classList.add('is-visible');
+}
+
+if (window.innerWidth <= MOBILE_BREAKPOINT) {
+  burger.classList.add('is-visible');
 }
 

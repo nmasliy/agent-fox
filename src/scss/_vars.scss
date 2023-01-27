@@ -1,8 +1,8 @@
 // base
 :root {
-  --content-width: 1180px;
-  --container-offset: 10px;
-  --container-width: calc(var(--content-width) + var(--container-offset));
+  --content-width: 1200px;
+  --container-offset: 20px;
+  --container-width: calc(var(--content-width) + var(--container-offset) * 2);
 }
 
 $index: calc(1vw + 1vh);
@@ -17,3 +17,9 @@ $black-color: #000;
 $accent-light-color: #f47c02;
 $accent-color: #f86a01;
 $accent-gradient: linear-gradient(84.16deg, #ff4e00 1.78%, #ec9f05 57.44%), #161616;
+
+@media screen and (max-width: 960px) {
+  :root {
+    --container-offset: 10px;
+  }
+}
