@@ -109,6 +109,7 @@
       margin-left: 11px;
       font-size: 14px;
       line-height: 16px;
+      white-space: nowrap;
       color: $accent-light-color;
     }
   }
@@ -177,8 +178,7 @@
     }
 
     &__subtitle {
-      font-size: 20px;
-      line-height: 24px;
+      display: none;
     }
 
     &__item {
@@ -238,8 +238,9 @@
     margin: 20px 0;
 
     &__heading {
+      margin-bottom: 8px;
       font-size: 20px;
-      line-height: 30px;
+      line-height: 1.2;
     }
 
     &__item {

@@ -30,6 +30,7 @@
 
   &__pagination {
     margin: 0 30px;
+    min-width: 209px;
     font-weight: 200;
     font-size: 64px;
     line-height: 60px;
@@ -199,6 +200,7 @@
     }
 
     &__pagination {
+      min-width: 176px;
       font-size: 54px;
       line-height: 56px;
     }
@@ -315,6 +317,7 @@
 
     &__pagination {
       margin: 0 0 0 20px;
+      min-width: 118px;
       font-size: 36px;
       line-height: 40px;
     }
@@ -358,6 +361,7 @@
       position: absolute;
       right: 15px;
       top: 95px;
+      min-width: auto;
       font-size: 24px;
       line-height: 30px;
     }

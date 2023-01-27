@@ -9,6 +9,7 @@
 
   &__list {
     margin-bottom: 60px;
+    font-weight: 300;
 
     > li {
       @include mb(10px);
@@ -30,8 +31,14 @@
 }
 
 @media screen and (max-width: 1440px) {
-  .about__title {
-    max-width: 900px;
+  .about {
+    &__title {
+      max-width: 805px;
+    }
+
+    &__list {
+      margin-bottom: 40px;
+    }
   }
 }
 

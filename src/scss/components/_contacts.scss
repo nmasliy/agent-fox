@@ -1,6 +1,7 @@
 .contacts {
   color: $white-color;
   background: linear-gradient(180deg, #080513 9.9%, rgba(14, 4, 28, 50%) 141.23%), url("../img/contacts-bg.jpg") center / cover no-repeat;
+  background-attachment: local;
 
   &__inner {
     display: flex;
