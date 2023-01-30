@@ -169,7 +169,8 @@
   }
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1440px),
+  screen and (max-height: 800px) {
   .projects {
     &::after {
       top: 150px;

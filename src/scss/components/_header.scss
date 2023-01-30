@@ -31,9 +31,10 @@
   }
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1440px),
+  screen and (max-height: 800px) {
   .header {
-    padding: 25px 0;
+    padding: 25px 0 0;
 
     &__logo svg {
       width: 230px;

@@ -132,7 +132,8 @@
   }
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1440px),
+  screen and (max-height: 750px) {
   .contacts {
     &__subtitle {
       margin-bottom: 20px;
@@ -307,6 +308,7 @@
     background:
       linear-gradient(180deg, #080513 9.9%, rgba(14, 4, 28, 50%) 141.23%),
       url("../img/contacts-bg-mob.jpg") center bottom 85px / cover no-repeat;
+    background-attachment: local;
   }
 }
 

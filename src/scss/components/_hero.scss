@@ -77,7 +77,8 @@
   }
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1440px),
+  screen and (max-height: 800px) {
   .hero {
     &__subtitle {
       font-size: 36px;
@@ -137,6 +138,18 @@
   }
 }
 
+@media screen and (max-width: 960px) and (max-height: 900px) {
+  .hero__text {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 960px) and (max-height: 800px) {
+  .hero__img {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 960px) {
   .hero {
     &__title {
@@ -172,14 +185,14 @@
       }
     }
 
-    &__text {
-      display: none;
-    }
-
     &__subtitle {
       margin-bottom: 30px;
       font-size: 24px;
       line-height: 1.25;
+    }
+
+    &__text {
+      max-width: 290px;
     }
 
     &__bg-title {
@@ -233,6 +246,10 @@
 
     &__btn {
       width: 100%;
+    }
+
+    &__text {
+      display: none;
     }
 
     &__bg-img-mobile {
