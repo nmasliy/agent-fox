@@ -80,7 +80,6 @@
 
 .color-gradient {
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent; /* stylelint-disable-line property-no-unknown */
   background: linear-gradient(84.16deg, #ff4e00 1.78%, #ec9f05 57.44%), #161616;
   -webkit-background-clip: text;
   background-clip: text;
@@ -91,6 +90,7 @@
   -webkit-text-fill-color: transparent;
   color: #fff;
   -webkit-background-clip: text;
+  background-clip: text;
   background-color: #fff;
 }
 
@@ -276,6 +276,17 @@
 }
 
 @media screen and (max-width: 575px) {
+  .section {
+    &--scroll {
+      overflow: auto;
+      height: 100%;
+
+      > .container {
+        height: auto;
+      }
+    }
+  }
+
   .arrow-up {
     right: 10px;
   }

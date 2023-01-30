@@ -3,6 +3,7 @@ import { MOBILE_BREAKPOINT } from '../_vars';
 
 const heroSection = document.querySelector('.hero');
 const burger = document.querySelector('.burger');
+const sections = document.querySelectorAll('.section');
 
 if (heroSection) {
   initAnimations();
@@ -55,7 +56,7 @@ function initAnimations() {
 
     if (toPosition !== 0 || window.innerWidth <= MOBILE_BREAKPOINT) {
       burger.classList.add('is-visible');
-      if (toPosition !== 2 && toPosition !== 0) {
+      if (sections[toPosition]?.dataset.burger === 'white') {
         burger.classList.add('is-white');
       } else {
         burger.classList.remove('is-white');
