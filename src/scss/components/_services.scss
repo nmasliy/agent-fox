@@ -68,7 +68,7 @@
       height: 16px;
       background: url("../img/arrow-orange-icon.svg") center right 140px no-repeat;
       opacity: 0;
-      transform: translateY(-50%);
+      transform: translateY(calc(-50% + 1px));
       transition: $transition;
     }
 

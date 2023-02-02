@@ -128,7 +128,7 @@ const resources = () => {
 };
 
 const images = () => {
-  return src([`${paths.srcImgFolder}/**/**.{jpg,jpeg,png,svg}`])
+  return src([`${paths.srcImgFolder}/*.{jpg,jpeg,png,svg}`])
     .pipe(
       gulpif(
         isProd,
@@ -147,10 +147,15 @@ const images = () => {
 };
 
 const webpImages = () => {
-  return src([`${paths.srcImgFolder}/**/**.{jpg,jpeg,png}`])
+  return src([`${paths.srcImgFolder}/*.{jpg,jpeg,png}`])
     .pipe(webp())
     .pipe(dest(paths.buildImgFolder));
 };
+
+const notOptimizedImages = () => {
+  return src([`${paths.srcImgFolder}/cases/*.*`])
+  .pipe(dest(paths.buildImgFolder));
+}
 
 const html = () => {
   return src([`${srcFolder}/*.html`])
@@ -178,6 +183,7 @@ const watchFiles = () => {
   watch(`${paths.resourcesFolder}/**`, resources);
   watch(`${paths.srcImgFolder}/**/**.{jpg,jpeg,png,svg}`, images);
   watch(`${paths.srcImgFolder}/**/**.{jpg,jpeg,png}`, webpImages);
+  watch(`${paths.srcImgFolder}/cases/**.{jpg,jpeg,png}`, notOptimizedImages);
 };
 
 const toProd = (done) => {
@@ -193,6 +199,7 @@ exports.default = series(
   resources,
   images,
   webpImages,
+  notOptimizedImages,
   watchFiles
 );
 
@@ -204,5 +211,6 @@ exports.build = series(
   styles,
   resources,
   images,
-  webpImages
+  webpImages,
+  notOptimizedImages
 );

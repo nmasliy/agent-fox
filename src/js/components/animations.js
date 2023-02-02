@@ -47,10 +47,15 @@ function initAnimations() {
     }
     if (toPosition === 0) gsap.to(".arrow-up", { opacity: 0 });
     else gsap.to(".arrow-up", { opacity: 1 });
-    
-    
+
+    burger.style.transitionDelay = '0.65s';
+
+    setTimeout(() => {
+    burger.style.transitionDelay = '';
+    }, 650)
+
+
     if (window.innerWidth > MOBILE_BREAKPOINT) {
-      burger.style.transitionDelay = '0.65s';
       setTimeout(() => burger.style.transitionDelay = '', 650)
     }
 

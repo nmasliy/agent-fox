@@ -1,0 +1,41 @@
+.simplebar-track.simplebar-vertical {
+  top: 85px;
+  bottom: 35px;
+  width: 24px;
+  background: transparent;
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 6px;
+    top: 0;
+    bottom: 0;
+    border-radius: 2px;
+    width: 2px;
+    height: 100%;
+    background-color: #5e5c65;
+  }
+}
+
+.simplebar-scrollbar {
+  min-height: 91px;
+  cursor: grab;
+
+  &::before {
+    left: auto;
+    right: 6px;
+    top: 0;
+    bottom: 0;
+    border-radius: 2px;
+    width: 2px;
+    background-color: $accent-color;
+    opacity: 1 !important;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .simplebar-track.simplebar-vertical {
+    top: 0;
+    bottom: 5px;
+  }
+}

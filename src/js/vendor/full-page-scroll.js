@@ -29,13 +29,36 @@
 
       if (hasSectionVerticalScroll) {
         section.addEventListener('scroll', checkScroll)
-        // section.addEventListener('touchstart',  () => allowScroll = false)
-        // section.addEventListener('touchend', checkScroll)
       }
     })
   }
 
+  function initScrollableCases() {
+    const projectsCases = document.querySelectorAll('.projects__content');
+
+    projectsCases.forEach(caseContent => {
+      caseContent.addEventListener('mouseover', (e) => {
+        allowScroll = false;
+      })
+      caseContent.addEventListener('mouseleave', (e) => {
+        allowScroll = true;
+      })
+      caseContent.addEventListener('touchstart', (e) => {
+        setTimeout(() => {
+          allowScroll = false;
+        }, 30)
+      })
+      caseContent.addEventListener('touchend', (e) => {
+        setTimeout(() => {
+          allowScroll = true;
+        }, 30)
+      })
+    })
+
+  }
+
   initScrollableSections();
+  initScrollableCases();
 
 	/**
 	 * Full scroll main function
@@ -192,10 +215,14 @@
         //   return;
         // }
 
+        if(!allowScroll) return;
+
         position = +_self.defaults.currentPosition + 1;
 				_self.defaults.currentPosition ++;
 				_self.changeCurrentPosition(_self.defaults.currentPosition);
 			} else if (event.deltaY < 0 || event.keyCode == 38) {
+        if(!allowScroll) return;
+
         // if (current === 1 && !window.projectsSlider.isBeginning || window.projectsSlider.animating) {
         //   return;
         // }
@@ -209,13 +236,14 @@
 		};
 
 		this.touchStart = function (event) {
+      if (!allowScroll) return;
 			mTouchStart = parseInt(event.changedTouches[0].clientY);
 			mTouchEnd = 0;
 		};
 
 		this.touchEnd = function (event) {
       if (document.querySelector('.header__menu.is-active')) return;
-      if (+_self.defaults.currentPosition === 2 && !allowScroll) return;
+      if (!allowScroll) return;
       if (_self.defaults.isAnimate) return;
 
 			mTouchEnd = parseInt(event.changedTouches[0].clientY);

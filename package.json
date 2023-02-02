@@ -59,6 +59,8 @@
     "gsap": "^3.11.4",
     "inputmask": "^5.0.7",
     "just-validate": "^4.0.2",
+    "resize-observer-polyfill": "^1.5.1",
+    "simplebar": "^6.2.0",
     "swiper": "^8.4.5"
   }
 }
