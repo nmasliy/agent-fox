@@ -242,7 +242,7 @@
 		};
 
 		this.touchEnd = function (event) {
-      if (document.querySelector('.header__menu.is-active')) return;
+      if (document.querySelector('.header__menu.is-active') || document.querySelector('.disable-scroll')) return;
       if (!allowScroll) return;
       if (_self.defaults.isAnimate) return;
 
