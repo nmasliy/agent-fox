@@ -9,7 +9,7 @@ const projectsSlidesCount = projectsSliderNode.querySelectorAll('.swiper-slide')
 paginationNode.textContent = `01 / ${addZero(projectsSlidesCount)}`;
 
 const projectsSlider = new Swiper(projectsSliderNode, {
-  spaceBetween: 50,
+  spaceBetween: 26,
   speed: 800,
   // simulateTouch : false,
   navigation: {
@@ -18,6 +18,7 @@ const projectsSlider = new Swiper(projectsSliderNode, {
   },
   pagination: {
     el: '.projects__pagination-mobile',
+    clickable: true
   },
   // mousewheel: {
   //   eventsTarget: '.projects',

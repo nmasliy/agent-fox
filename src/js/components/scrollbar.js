@@ -16,3 +16,9 @@ caseItems.forEach(itemNode => {
     // }
   });
 })
+
+document.querySelector(':root').style.setProperty('--projects-img-height', `${caseItems[0].offsetHeight}px`);
+
+window.addEventListener('resize', () => {
+  document.querySelector(':root').style.setProperty('--projects-img-height', `${caseItems[0].offsetHeight}px`);
+})
