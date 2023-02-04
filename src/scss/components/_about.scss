@@ -1,6 +1,6 @@
 .about {
   color: $white-color;
-  background: url("../img/about.png") bottom right no-repeat, url("../img/about-bg.jpg") center / cover no-repeat;
+  background: url("../img/about.png") bottom right no-repeat, url("../img/about-bg.png") center / cover no-repeat;
 
   &__title {
     margin-bottom: 50px;
@@ -45,7 +45,7 @@
 
 @media screen and (max-width: 1280px) {
   .about {
-    background: url("../img/about.png") bottom right / 750px no-repeat, url("../img/about-bg.jpg") center / cover no-repeat;
+    background: url("../img/about.png") bottom right / 750px no-repeat, url("../img/about-bg.png") center / cover no-repeat;
   }
 }
 
@@ -73,7 +73,7 @@
 
 @media screen and (max-width: 768px) {
   .about {
-    background: url("../img/about.png") bottom right / 527px no-repeat, url("../img/about-bg.jpg") center / cover no-repeat;
+    background: url("../img/about.png") bottom right / 527px no-repeat, url("../img/about-bg.png") center / cover no-repeat;
   }
 }
 
@@ -81,7 +81,7 @@
   .about {
     background:
       url("../img/about.png") bottom right -50px / 527px no-repeat,
-      url("../img/about-bg.jpg") center / cover no-repeat;
+      url("../img/about-bg.png") center / cover no-repeat;
 
     &::after {
       content: "";
