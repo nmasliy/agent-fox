@@ -43,16 +43,19 @@
       caseContent.addEventListener('mouseleave', (e) => {
         allowScroll = true;
       })
-      caseContent.addEventListener('touchstart', (e) => {
-        setTimeout(() => {
-          allowScroll = false;
-        }, 30)
-      })
-      caseContent.addEventListener('touchend', (e) => {
-        setTimeout(() => {
-          allowScroll = true;
-        }, 30)
-      })
+      if (window.innerWidth > 575) {
+        caseContent.addEventListener('touchstart', (e) => {
+          setTimeout(() => {
+            allowScroll = false;
+          }, 30)
+        })
+        caseContent.addEventListener('touchend', (e) => {
+          setTimeout(() => {
+            allowScroll = true;
+          }, 30)
+        })
+
+      }
     })
 
   }
@@ -204,7 +207,7 @@
 
 		this.mouseWheelAndKey = function (event) {
       if (document.querySelector('.disable-scroll') ||
-        !document.querySelector('.hero').dataset.animated ||
+        (!document.querySelector('.hero').dataset.animated && +_self.defaults.currentPosition === 0)||
         _self.defaults.isAnimate) return;
 
       let current = +_self.defaults.currentPosition;

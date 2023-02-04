@@ -270,6 +270,8 @@
 
 @media screen and (max-width: 575px) {
   .contacts {
+    padding-bottom: 0;
+
     &__socials-caption {
       margin-right: 0;
       margin-bottom: 24px;

@@ -1,4 +1,4 @@
-<section class="section hero">
+<section class="section hero" data-section>
   <div class="container">
     <div class="hero__inner section__inner">
       @include('header.html')
@@ -15,10 +15,11 @@
             It-агентами</a>
         </div>
       </div>
-      <div class="hero__img">
+      <div class="hero__img-mobile">
         <picture>
           <source srcset="img/hero.webp" type="image/webp">
-          <img loading="lazy" src="img/hero.png" width="773" height="580" alt="Girl on bike">
+          <source srcset="img/hero.png" type="image/jpeg">
+          <img src="img/hero.png" width="773" height="580" alt="Girl on the bike">
         </picture>
       </div>
     </div>

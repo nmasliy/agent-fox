@@ -1,4 +1,5 @@
 .page-wrapper {
+  position: relative;
   height: 100%;
 }
 
@@ -172,6 +173,10 @@
     z-index: 2;
   }
 
+  &.is-active {
+    opacity: 1;
+  }
+
   @include hover {
     &::before {
       opacity: 1;
@@ -277,9 +282,17 @@
 
 @media screen and (max-width: 575px) {
   .section {
+    padding: 50px 0;
+    height: auto;
+
+    &__inner {
+      padding: 0;
+      height: auto;
+    }
+
     &--scroll {
-      overflow: auto;
-      height: 100%;
+      overflow: visible;
+      height: auto;
 
       > .container {
         height: auto;
@@ -289,6 +302,7 @@
 
   .arrow-up {
     right: 10px;
+    transition: $transition;
   }
 }
 

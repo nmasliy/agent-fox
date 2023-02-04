@@ -1,3 +1,4 @@
+/* stylelint-disable no-unknown-animations */
 .hero {
   &__inner {
     position: relative;
@@ -29,12 +30,6 @@
     font-weight: 300;
   }
 
-  &__img {
-    position: absolute;
-    right: -100px;
-    bottom: -45px;
-  }
-
   &__btn-wrapper {
     display: inline-block;
   }
@@ -45,6 +40,10 @@
     top: 50%;
     z-index: -1;
     transform: translateY(-50%);
+  }
+
+  &__img-mobile {
+    display: none;
   }
 
   &__bg-img {
@@ -74,6 +73,183 @@
       font-weight: 900;
       font-size: 480px;
     }
+  }
+}
+
+.motogirl {
+  position: absolute;
+  right: 20vw;
+  bottom: -45px;
+  z-index: 7;
+
+  &__img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    perspective: 150px;
+    transform-style: preserve-3d;
+  }
+
+  &__bike {
+    position: relative;
+    z-index: 2;
+
+    img {
+      max-width: 596px;
+    }
+  }
+
+  &__body {
+    left: 96px;
+    bottom: 65px;
+    z-index: 3;
+    perspective-origin: left center;
+    transform-origin: left center;
+    animation: body 1.2s ease-in-out infinite alternate;
+
+    img {
+      max-width: 356px;
+    }
+
+    &--main {
+      clip-path: polygon(0 0, 100% 0%, 100% 37%, 0 37%);
+    }
+
+    &--leg {
+      bottom: 70px;
+      clip-path: polygon(0 37%, 100% 37%, 100% 100%, 0 100%);
+    }
+  }
+
+  &__hand {
+    left: 273px;
+    bottom: 339px;
+
+    img {
+      max-width: 167px;
+    }
+  }
+
+  &__face {
+    left: 231px;
+    bottom: 388px;
+    perspective-origin: left center;
+    animation: face 0.7s ease-in-out infinite alternate;
+
+    img {
+      max-width: 50px;
+    }
+  }
+
+  &__hair {
+    $tail-size: 15%;
+    $left-hair-size: 28%;
+    $center-hair-size: 47%;
+    $right-hair-size: 10%;
+    $left-hair-end-position: calc($tail-size + $left-hair-size);
+    $center-hair-end-position: calc($left-hair-end-position + $center-hair-size);
+    $right-hair-end-position: calc($center-hair-end-position + $right-hair-size);
+
+    left: 7px;
+    bottom: 402px;
+
+    img {
+      max-width: 276px;
+    }
+
+    &--tail {
+      z-index: 3;
+      clip-path: polygon(0 0, $tail-size 0, $tail-size 100%, 0 100%);
+      perspective-origin: left center;
+      transform-origin: top;
+      animation: hair-tail 1s ease-in-out infinite alternate;
+    }
+
+    &--left {
+      clip-path:
+        polygon(
+          $tail-size 0,
+          $left-hair-end-position 0,
+          $left-hair-end-position 100%,
+          $tail-size 100%
+        );
+      perspective-origin: left center;
+      transform-origin: left center;
+      animation: hair-left 1s ease-in-out infinite alternate;
+    }
+
+    &--center {
+      left: 6px;
+      clip-path:
+        polygon(
+          $left-hair-end-position 0,
+          $center-hair-end-position 0,
+          $center-hair-end-position 100%,
+          $left-hair-end-position 100%
+        );
+      perspective-origin: left center;
+      transform-origin: center;
+      animation: hair-center 0.8s ease-in-out infinite alternate;
+    }
+
+    &--right {
+      left: 5px;
+      bottom: 403px;
+      clip-path:
+        polygon(
+          $center-hair-end-position 0,
+          $right-hair-end-position 0,
+          $right-hair-end-position 100%,
+          $center-hair-end-position 100%
+        );
+      perspective-origin: right center;
+      transform-origin: right;
+      animation: hair-right 0.8s ease-in-out infinite alternate;
+    }
+  }
+
+  &__notebook {
+    left: 350px;
+    bottom: 310px;
+    z-index: 2;
+
+    img {
+      max-width: 108px;
+    }
+  }
+
+  &__light {
+    left: 354px;
+    bottom: 315px;
+    animation: light-blinking 1s linear infinite;
+
+    img {
+      max-width: 100px;
+    }
+  }
+
+  &__back-wheel {
+    left: -27px;
+    bottom: 6px;
+
+    img {
+      max-width: 200px;
+    }
+  }
+
+  &__front-wheel {
+    left: 485px;
+    bottom: 14px;
+
+    img {
+      max-width: 200px;
+    }
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .motogirl {
+    right: 80px;
   }
 }
 
@@ -126,13 +302,13 @@
     &__bg-img-wrapper {
       right: -300px;
     }
+  }
 
-    &__img {
-      right: -50px;
+  .motogirl {
+    right: -25px;
 
-      img {
-        width: 700px;
-      }
+    &__content {
+      transform: scale(0.9);
     }
   }
 }
@@ -140,28 +316,14 @@
 @media screen and (max-width: 1100px) {
   .hero {
     &__bg-img-wrapper {
-      right: -410px;
-    }
-
-    &__img {
-      right: -50px;
-
-      img {
-        width: 640px;
-      }
+      right: -460px;
     }
   }
-}
 
-@media screen and (max-width: 960px) and (max-height: 900px) {
-  .hero__text {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 960px) and (max-height: 800px) {
-  .hero__img {
-    display: none;
+  .motogirl {
+    &__content {
+      transform: scale(0.8);
+    }
   }
 }
 
@@ -191,15 +353,6 @@
       display: none;
     }
 
-    &__img {
-      right: 0;
-      bottom: -40px;
-
-      img {
-        width: 555px;
-      }
-    }
-
     &__subtitle {
       margin-bottom: 30px;
       font-size: 24px;
@@ -207,18 +360,12 @@
     }
 
     &__text {
+      display: none;
       max-width: 290px;
     }
 
     &__bg-title {
-      bottom: -11px;
-      font-size: 260px;
-
-      &--1 {
-        top: auto;
-        bottom: 200px;
-        font-size: 150px;
-      }
+      display: none;
     }
 
     &__bg-img,
@@ -226,35 +373,56 @@
       display: none;
     }
   }
+
+  .motogirl {
+    right: 100px;
+    bottom: -100px;
+
+    &__content {
+      transform: scale(0.7);
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
   .hero {
-    &__img {
-      display: none;
-    }
-
     &__bg-img-mobile {
       left: auto;
       right: -208px;
       bottom: -164px;
     }
 
-    &__bg-title {
-      bottom: -21px;
-      font-size: 210px;
+    &__img-mobile {
+      position: absolute;
+      left: 0;
+      bottom: -30px;
+      display: block;
 
-      &--1 {
-        top: auto;
-        bottom: 142px;
-        font-size: 115px;
+      img {
+        width: 450px;
+        min-width: 450px;
       }
     }
+  }
+
+  .motogirl {
+    display: none;
   }
 }
 
 @media screen and (max-width: 575px) {
   .hero {
+    padding: 0;
+
+    &__content {
+      padding-top: 20px;
+    }
+
+    &__inner {
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
     &__btn-wrapper {
       display: block;
     }
@@ -273,10 +441,6 @@
       bottom: 0;
       width: 700px;
     }
-
-    &__bg-title {
-      left: -20px;
-    }
   }
 }
 
@@ -284,6 +448,11 @@
   .hero {
     &__bg-img-mobile {
       width: 621px;
+    }
+
+    &__img-mobile {
+      left: auto;
+      right: -18px;
     }
   }
 }
@@ -298,23 +467,18 @@
 
 @media screen and (max-width: 575px) and (max-height: 650px) {
   .hero {
-    &__inner {
-      padding-bottom: 230px;
+    &__content {
+      padding-top: 0;
+    }
+
+    &__img-mobile img {
+      min-width: 400px;
     }
   }
 }
 
 @media screen and (min-height: 1090px) and (min-width: 1920px) {
   .hero {
-    &__bg-title {
-      bottom: 5%;
-
-      &--1 {
-        top: 10%;
-        bottom: auto;
-      }
-    }
-
     &__bg-img {
       display: none;
 

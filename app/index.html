@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -17,9 +17,68 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 
-  <body>
-    <div class="page-wrapper" id="page">
-      <section class="section hero">
+<body>
+  <div class="page-wrapper" id="page">
+    <div class="motogirl">
+  <div class="motogirl__content">
+    <picture class="motogirl__img motogirl__bike">
+      <source srcset="img/moto-body.webp" type="image/webp">
+      <img src="img/moto-body.png" width="596" alt="">
+    </picture>
+    <picture class="motogirl__img motogirl__body motogirl__body--main">
+      <source srcset="img/girl-body.webp" type="image/webp">
+      <img src="img/girl-body.png" width="356" alt="">
+    </picture>
+    <picture class="motogirl__img motogirl__body motogirl__body--leg">
+      <source srcset="img/girl-body.webp" type="image/webp">
+      <img src="img/girl-body.png" width="356" alt="">
+    </picture>
+    <picture class="motogirl__img motogirl__hand">
+      <source srcset="img/girl-hand.webp" type="image/webp">
+      <img src="img/girl-hand.png" width="256" alt="">
+    </picture>
+    <picture class="motogirl__img motogirl__face">
+      <source srcset="img/girl-face.webp" type="image/webp">
+      <img src="img/girl-face.png" width="50" alt="">
+    </picture>
+    <!-- Hair -->
+    <picture class="motogirl__img motogirl__hair motogirl__hair--tail">
+      <source srcset="img/girl-hair.webp" type="image/webp">
+      <img src="img/girl-hair.png" width="276" alt="">
+    </picture>
+    <picture class="motogirl__img motogirl__hair motogirl__hair--left">
+      <source srcset="img/girl-hair.webp" type="image/webp">
+      <img src="img/girl-hair.png" width="276" alt="">
+    </picture>
+    <picture class="motogirl__img motogirl__hair motogirl__hair--center">
+      <source srcset="img/girl-hair.webp" type="image/webp">
+      <img src="img/girl-hair.png" width="276" alt="">
+    </picture>
+    <picture class="motogirl__img motogirl__hair motogirl__hair--right">
+      <source srcset="img/girl-hair.webp" type="image/webp">
+      <img src="img/girl-hair.png" width="276" alt="">
+    </picture>
+    <!-- /Hair -->
+    <picture class="motogirl__img motogirl__notebook">
+      <source srcset="img/notebook.webp" type="image/webp">
+      <img src="img/notebook.png" width="108" alt="">
+    </picture>
+    <picture class="motogirl__img motogirl__light">
+      <source srcset="img/light-notebook.webp" type="image/webp">
+      <img src="img/light-notebook.png" width="100" alt="">
+    </picture>
+    <picture class="motogirl__img motogirl__back-wheel">
+      <source srcset="img/back-wheel.webp" type="image/webp">
+      <img src="img/back-wheel.png" width="200" alt="">
+    </picture>
+    <picture class="motogirl__img motogirl__front-wheel">
+      <source srcset="img/front-wheel.webp" type="image/webp">
+      <img src="img/front-wheel.png" width="200" alt="">
+    </picture>
+  </div>
+</div>
+
+    <section class="section hero" data-section>
   <div class="container">
     <div class="hero__inner section__inner">
       <header class="header">
@@ -117,10 +176,11 @@
             It-агентами</a>
         </div>
       </div>
-      <div class="hero__img">
+      <div class="hero__img-mobile">
         <picture>
           <source srcset="img/hero.webp" type="image/webp">
-          <img loading="lazy" src="img/hero.png" width="773" height="580" alt="Girl on bike">
+          <source srcset="img/hero.png" type="image/jpeg">
+          <img src="img/hero.png" width="773" height="580" alt="Girl on the bike">
         </picture>
       </div>
     </div>
@@ -136,7 +196,7 @@
   </div>
 </section>
 
-      <section class="projects section" data-burger="white">
+    <section class="projects section" data-burger="white" data-section>
   <div class="container">
     <div class="projects__inner section__inner">
       <header class="projects__header">
@@ -366,7 +426,7 @@
   </div>
 </section>
 
-      <section class="services section section--scroll">
+    <section class="services section section--scroll" data-section>
   <div class="container">
     <div class="services__inner section__inner section-padding">
       <h2 class="services__title section__title color-gradient">Услуги и цены</h2>
@@ -503,7 +563,7 @@
   </div>
 </section>
 
-      <section class="about section" data-burger="white">
+    <section class="about section" data-burger="white" data-section>
   <div class="container">
     <div class="about__inner section__inner section-padding">
       <h3 class="about__title section__title color-gradient"><span class="color-gradient-white">Агентство</span>
@@ -522,7 +582,7 @@
   </div>
 </section>
 
-      <section class="contacts section section--scroll" data-burger="white">
+    <section class="contacts section section--scroll" data-burger="white" data-section>
   <div class="contacts__wrapper section__inner">
     <div class="container">
       <div class="contacts__inner">
@@ -534,12 +594,8 @@
           <span class="color-gradient">сколько это стоит</span>
         </h4>
         <div class="contacts__row">
-          <form
-            class="contacts__form form contacts-form"
-            action="#"
-            method="POST"
-            enctype="multipart/form-data"
-          >
+          <form class="contacts__form form contacts-form" action="#" method="POST" enctype="multipart/form-data"
+            data-section>
             <div class="contacts-form__head">
               <div class="contacts-form__title">Выберите услугу</div>
               <div class="contacts-form__select-wrapper form__select-wrapper">
@@ -552,35 +608,17 @@
                 </select>
               </div>
             </div>
-            <textarea
-              class="contacts-form__textarea form__textarea"
-              name="Описание"
-              placeholder="Опишите задачи и цели проекта"
-            ></textarea>
+            <textarea class="contacts-form__textarea form__textarea" name="Описание"
+              placeholder="Опишите задачи и цели проекта"></textarea>
             <div class="contacts-form__row">
               <label class="form__label">
-                <input
-                  class="form__input form__input--name"
-                  name="Имя"
-                  type="text"
-                  placeholder="Имя"
-                />
+                <input class="form__input form__input--name" name="Имя" type="text" placeholder="Имя" />
               </label>
               <label class="form__label">
-                <input
-                  class="form__input form__input--tel"
-                  name="Телефон"
-                  type="tel"
-                  placeholder="Телефон"
-                />
+                <input class="form__input form__input--tel" name="Телефон" type="tel" placeholder="Телефон" />
               </label>
               <label class="form__label">
-                <input
-                  class="form__input form__input--email"
-                  name="Email"
-                  type="mail"
-                  placeholder="Email"
-                />
+                <input class="form__input form__input--email" name="Email" type="mail" placeholder="Email" />
               </label>
             </div>
             <div class="contacts-form__buttons">
@@ -588,17 +626,9 @@
                 Отправить заявку
               </button>
               <label class="form__file">
-                <input
-                  type="file"
-                  id="file"
-                  type="file"
-                  name="files[]"
-                  multiple
-                />
+                <input type="file" id="file" type="file" name="files[]" multiple />
                 <img src="img/add-icon.svg" alt="Прикрепить ТЗ или бриф" />
-                <span data-text="Прикрепить ТЗ или бриф"
-                  >Прикрепить ТЗ или бриф</span
-                >
+                <span data-text="Прикрепить ТЗ или бриф">Прикрепить ТЗ или бриф</span>
               </label>
             </div>
             <div class="form__policy">
@@ -618,22 +648,12 @@
               </div>
               <ul>
                 <li>
-                  <a href="https://tlgg.ru/Vasechka38" target="_blank"
-                    ><img
-                      src="img/telegram-icon.svg"
-                      width="50"
-                      height="50"
-                      alt="Telegram"
-                  /></a>
+                  <a href="https://tlgg.ru/Vasechka38" target="_blank"><img src="img/telegram-icon.svg" width="50"
+                      height="50" alt="Telegram" /></a>
                 </li>
                 <li>
-                  <a href="https://wa.me/79500764355" target="_blank"
-                    ><img
-                      src="img/whatsapp-icon.svg"
-                      width="50"
-                      height="50"
-                      alt="Whatsapp"
-                  /></a>
+                  <a href="https://wa.me/79500764355" target="_blank"><img src="img/whatsapp-icon.svg" width="50"
+                      height="50" alt="Whatsapp" /></a>
                 </li>
               </ul>
             </div>
@@ -654,16 +674,11 @@
   </div>
 </section>
 
-    </div>
-    <a class="arrow-up" href="#0">
-      <img
-        src="img/arrow-white-icon.svg"
-        width="16"
-        height="22"
-        alt="Вернуться наверх"
-      />
-    </a>
-    <div class="modal modal-contact" id="modal-contact" aria-hidden="true">
+  </div>
+  <a class="arrow-up" href="#0">
+    <img src="img/arrow-white-icon.svg" width="16" height="22" alt="Вернуться наверх" />
+  </a>
+  <div class="modal modal-contact" id="modal-contact" aria-hidden="true">
   <div class="modal__wrapper">
     <div class="modal-contact__inner modal__inner">
       <div class="modal__content">
@@ -776,7 +791,7 @@
   </div>
 </div>
 
-    <div class="menu">
+  <div class="menu">
   <div class="menu__logo">
     <svg width="260" height="74" viewBox="0 0 260 74" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M112.173 31.1166H104.889L103.785 34.4787H97.7617L105.256 13.9035H111.84L119.3 34.4787H113.259L112.173 31.1166ZM110.755 26.7389L108.531 20.0848L106.342 26.7389H110.755Z" fill="#161616"/>
@@ -888,6 +903,7 @@
   </div>
 </div>
 <div class="overlay"></div>
-    <script src="js/main.js"></script>
-  </body>
+  <script src="js/main.js"></script>
+</body>
+
 </html>

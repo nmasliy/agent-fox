@@ -46,3 +46,11 @@ button {
     font-size: 16px;
   }
 }
+
+@media screen and (max-width: 575px) {
+  html,
+  body {
+    overflow: visible;
+    overflow-x: hidden;
+  }
+}
