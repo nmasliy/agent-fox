@@ -70,7 +70,10 @@ function initAnimations() {
       .from(".hero__subtitle", { x: "-100vw", filter:"blur(2px)",  duration: 0.4, ease: "power2.out" }, '-=0.3')
       .from(".hero__text", { x: "-100vw", filter:"blur(2px)",  duration: 0.5, ease: "power2.out" }, '-=0.3')
       .from(".hero__btn-wrapper", { scale: 0,  duration: 0.3, ease: "power2.out" }, '-=0.3')
-      .then(() => heroSection.dataset.animated = true);
+      .then(() => {
+        heroSection.dataset.animated = true;
+        allowPageScroll();
+      });
   }
 
   initAnimationsOnLoad();
@@ -79,48 +82,50 @@ function initAnimations() {
     heroSection.dataset.animated = true
   }, 1500)
 
-
-  fullpage.onSlideChangeCustom = ({fromPosition, toPosition}) => { // Анимация появления и исчезания первого экрана при скролле
-    if (window.innerWidth > 768) {
-      const ntl = gsap.timeline();
-      if (fromPosition === 0 && toPosition === 1) {
-        motoTl.timeScale(1);
-        ntl.to(".motogirl", { x: "100vw", y: 700,  filter:"blur(2px)", opacity: 0.4,  duration: 0.7, ease: "power4.in" });
-        ntl.to(".hero", { y: -200,  filter:"blur(1px)",  duration: 0.5, ease: "power2.in" }, "-=0.4");
-      } else if (toPosition === 0) {
-        motoTl.timeScale(0.05);
-        ntl.to(".hero", { y: 0,  filter:"blur(0)",  duration: 0.5, ease: "power2.out" });
-        ntl.to(".motogirl", { x: 0, y: 0,  filter:"blur(0)", opacity: 1, duration: 0.5, ease: "power2.out" });
+  function allowPageScroll() {
+    window.fullpage.defaults.onSlideChangeCustom = ({fromPosition, toPosition}) => { // Анимация появления и исчезания первого экрана при скролле
+      if (window.innerWidth > 768) {
+        const ntl = gsap.timeline();
+        if (fromPosition === 0 && toPosition === 1) {
+          motoTl.timeScale(1);
+          ntl.to(".motogirl", { x: "100vw", y: 700,  filter:"blur(2px)", opacity: 0.4,  duration: 0.7, ease: "power4.in" });
+          ntl.to(".hero", { y: -200,  filter:"blur(1px)",  duration: 0.5, ease: "power2.in" }, "-=0.4");
+        } else if (toPosition === 0) {
+          motoTl.timeScale(0.05);
+          ntl.to(".hero", { y: 0,  filter:"blur(0)",  duration: 0.5, ease: "power2.out" });
+          ntl.to(".motogirl", { x: 0, y: 0,  filter:"blur(0)", opacity: 1, duration: 0.5, ease: "power2.out" });
+        }
       }
-    }
-    if (toPosition === 0) gsap.to(".arrow-up", { opacity: 0 });
-    else gsap.to(".arrow-up", { opacity: 1 });
+      if (toPosition === 0) gsap.to(".arrow-up", { opacity: 0 });
+      else gsap.to(".arrow-up", { opacity: 1 });
 
-    burger.style.transitionDelay = '0.65s';
+      burger.style.transitionDelay = '0.65s';
 
-    setTimeout(() => {
-    burger.style.transitionDelay = '';
-    }, 650)
+      setTimeout(() => {
+      burger.style.transitionDelay = '';
+      }, 650)
 
 
-    if (window.innerWidth > MOBILE_BREAKPOINT) {
-      setTimeout(() => burger.style.transitionDelay = '', 650)
-    }
-
-    if (toPosition !== 0 || window.innerWidth <= MOBILE_BREAKPOINT) {
-      burger.classList.add('is-visible');
-      if (sections[toPosition]?.dataset.burger === 'white') {
-        burger.classList.add('is-white');
-      } else {
-        burger.classList.remove('is-white');
-      }
-    } else {
       if (window.innerWidth > MOBILE_BREAKPOINT) {
-        burger.classList.remove('is-visible');
+        setTimeout(() => burger.style.transitionDelay = '', 650)
       }
-    }
 
+      if (toPosition !== 0 || window.innerWidth <= MOBILE_BREAKPOINT) {
+        burger.classList.add('is-visible');
+        if (sections[toPosition]?.dataset.burger === 'white') {
+          burger.classList.add('is-white');
+        } else {
+          burger.classList.remove('is-white');
+        }
+      } else {
+        if (window.innerWidth > MOBILE_BREAKPOINT) {
+          burger.classList.remove('is-visible');
+        }
+      }
+
+    }
   }
+
   const ntl = gsap.timeline();
 
   navListItemNodes.forEach(listItemNode => { // Анимация первого экране при навигации по секциям через меню

@@ -95,7 +95,7 @@
 			dotsPosition: params.dotsPosition || 'left',
       onSlideChangeCustom: () => {},
       onSlideChange: (payload) => {
-        this.onSlideChangeCustom(payload);
+        this.defaults.onSlideChangeCustom(payload);
       }
 		};
 
