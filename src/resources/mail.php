@@ -61,16 +61,16 @@ try {
 
   // Настройки вашей почты
   $mail->Host       = 'smtp.gmail.com'; // SMTP сервера вашей почты
-  $mail->Username   = 'agentfox@gmail.com'; // Логин на почте
+  $mail->Username   = 'agentfoxy.com@gmail.com'; // Логин на почте
   $mail->Password   = 'gdujekgvftdwpzmh'; // Пароль SMTP с почты agentfoxy.com@gmail.com
   $mail->SMTPSecure = 'ssl';
   $mail->Port       = 465;
 
-  $mail->setFrom('adv.agentfox@gmail.com', 'Заявка с вашего сайта agentfox'); // Адрес самой почты и имя отправителя
+  $mail->setFrom('agentfoxy.com@gmail.com', 'Заявка с вашего сайта agentfox'); // Адрес самой почты и имя отправителя
 
   // Получатели письма
   $mail->addAddress('adv.agentfox@gmail.com');
-  // $mail->addAddress('blablablal@mail.ru');
+  $mail->addAddress('deckards2505@gmail.com');
 
   // Прикрепление файлов к письму
   if (!empty($files['name'][0])) {

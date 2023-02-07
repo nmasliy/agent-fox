@@ -1,0 +1,215 @@
+/* stylelint-disable no-unknown-animations */
+
+.motogirl {
+  position: absolute;
+  right: 20vw;
+  bottom: -45px;
+  z-index: 7;
+
+  &__img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    perspective: 150px;
+    transform-style: preserve-3d;
+  }
+
+  &__bike {
+    position: relative;
+    z-index: 2;
+
+    img {
+      max-width: 596px;
+    }
+  }
+
+  &__body {
+    left: 96px;
+    bottom: 65px;
+    z-index: 3;
+    perspective-origin: left center;
+    transform-origin: left center;
+    animation: body 1.2s ease-in-out infinite alternate;
+
+    img {
+      max-width: 356px;
+    }
+
+    &--main {
+      clip-path: polygon(0 0, 100% 0%, 100% 37%, 0 37%);
+    }
+
+    &--leg {
+      bottom: 70px;
+      clip-path: polygon(0 37%, 100% 37%, 100% 100%, 0 100%);
+    }
+  }
+
+  &__hand {
+    left: 273px;
+    bottom: 339px;
+
+    img {
+      max-width: 167px;
+    }
+  }
+
+  &__face {
+    left: 231px;
+    bottom: 388px;
+    z-index: 2;
+    perspective-origin: left center;
+    animation: face 0.7s ease-in-out infinite alternate;
+
+    img {
+      max-width: 50px;
+    }
+  }
+
+  &__hair {
+    $tail-size: 15%;
+    $left-hair-size: 28%;
+    $center-hair-size: 47%;
+    $right-hair-size: 10%;
+    $left-hair-end-position: calc($tail-size + $left-hair-size);
+    $center-hair-end-position: calc($left-hair-end-position + $center-hair-size);
+    $right-hair-end-position: calc($center-hair-end-position + $right-hair-size);
+
+    left: 7px;
+    bottom: 402px;
+    z-index: 3;
+
+    img {
+      max-width: 276px;
+    }
+
+    &--tail {
+      z-index: 3;
+      clip-path: polygon(0 0, $tail-size 0, $tail-size 100%, 0 100%);
+      perspective-origin: left center;
+      transform-origin: top;
+      animation: hair-tail 1s ease-in-out infinite alternate;
+    }
+
+    &--left {
+      clip-path:
+        polygon(
+          $tail-size 0,
+          $left-hair-end-position 0,
+          $left-hair-end-position 100%,
+          $tail-size 100%
+        );
+      perspective-origin: left center;
+      transform-origin: left center;
+      animation: hair-left 1s ease-in-out infinite alternate;
+    }
+
+    &--center {
+      left: 6px;
+      clip-path:
+        polygon(
+          $left-hair-end-position 0,
+          $center-hair-end-position 0,
+          $center-hair-end-position 100%,
+          $left-hair-end-position 100%
+        );
+      perspective-origin: left center;
+      transform-origin: center;
+      animation: hair-center 0.8s ease-in-out infinite alternate;
+    }
+
+    &--right {
+      left: 5px;
+      bottom: 403px;
+      clip-path:
+        polygon(
+          $center-hair-end-position 0,
+          $right-hair-end-position 0,
+          $right-hair-end-position 100%,
+          $center-hair-end-position 100%
+        );
+      perspective-origin: right center;
+      transform-origin: right;
+      animation: hair-right 0.8s ease-in-out infinite alternate;
+    }
+  }
+
+  &__notebook {
+    left: 350px;
+    bottom: 310px;
+    z-index: 2;
+
+    img {
+      max-width: 108px;
+    }
+  }
+
+  &__light {
+    left: 354px;
+    bottom: 315px;
+    animation: light-blinking 1s linear infinite;
+
+    img {
+      max-width: 100px;
+    }
+  }
+
+  &__back-wheel {
+    left: -27px;
+    bottom: 6px;
+
+    img {
+      max-width: 200px;
+    }
+  }
+
+  &__front-wheel {
+    left: 485px;
+    bottom: 14px;
+
+    img {
+      max-width: 200px;
+    }
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .motogirl {
+    right: 80px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .motogirl {
+    right: -25px;
+
+    &__content {
+      transform: scale(0.9);
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .motogirl {
+    &__content {
+      transform: scale(0.8);
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .motogirl {
+    right: 100px;
+    bottom: -100px;
+
+    &__content {
+      transform: scale(0.7);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .motogirl {
+    display: none;
+  }
+}

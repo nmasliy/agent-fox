@@ -1,6 +1,6 @@
 .about {
   color: $white-color;
-  background: url("../img/about.png") bottom right no-repeat, url("../img/about-bg.png") center / cover no-repeat;
+  background: url("../img/about.png") bottom right no-repeat, url("../img/about-bg.png") right -1px center / cover no-repeat;
 
   &__title {
     margin-bottom: 50px;
@@ -45,16 +45,12 @@
 
 @media screen and (max-width: 1280px) {
   .about {
-    background: url("../img/about.png") bottom right / 750px no-repeat, url("../img/about-bg.png") center / cover no-repeat;
+    background: url("../img/about.png") bottom right / 750px no-repeat, url("../img/about-bg.png") right -1px center / cover no-repeat;
   }
 }
 
 @media screen and (max-width: 960px) {
   .about {
-    &__inner {
-      padding-bottom: 300px;
-    }
-
     &__title {
       margin-bottom: 20px;
       max-width: 527px;
@@ -62,6 +58,14 @@
 
     &__list {
       margin-bottom: 30px;
+
+      > li {
+        line-height: 20px;
+
+        &::before {
+          top: 5px;
+        }
+      }
     }
 
     &__btn {
@@ -73,7 +77,13 @@
 
 @media screen and (max-width: 768px) {
   .about {
-    background: url("../img/about.png") bottom right / 527px no-repeat, url("../img/about-bg.png") center / cover no-repeat;
+    overflow: hidden;
+    background: url("../img/about.png") bottom right / 527px no-repeat, url("../img/about-bg-mobile.png") center / cover no-repeat;
+
+    &__inner {
+      justify-content: flex-start;
+      padding-bottom: 300px;
+    }
   }
 }
 
@@ -81,7 +91,7 @@
   .about {
     background:
       url("../img/about.png") bottom right -50px / 527px no-repeat,
-      url("../img/about-bg.png") center / cover no-repeat;
+      url("../img/about-bg-mobile.png") center / cover no-repeat;
 
     &::after {
       content: "";

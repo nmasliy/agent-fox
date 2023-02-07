@@ -148,7 +148,6 @@ const rulesTender = [
 
 ];
 
-
 const fileInput = document.querySelector('#file');
 const fileTextNode = document.querySelector('.form__file span');
 
@@ -161,11 +160,16 @@ fileInput.addEventListener('change', (e) => {
 })
 
 const afterSend = () => {
+  const currentModalId = window.modals.activeModalNodes[0].id;
+  window.modals.close(currentModalId);
+}
+
+const afterSendWithFile = () => {
   fileInput.value = "";
   fileTextNode.textContent = fileTextNode.dataset.text;
 };
 
-validateForms('.contacts-form', rules, afterSend);
+validateForms('.contacts-form', rules, afterSendWithFile);
 validateForms('#modal-contact .modal__form', rulesContacts, afterSend);
 validateForms('#modal-tender .modal__form', rulesTender, afterSend);
 

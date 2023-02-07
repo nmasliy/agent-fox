@@ -8,3 +8,5 @@ const options = {
 const modals = new SimpleModal(options);
 
 modals.init();
+
+window.modals = modals;
