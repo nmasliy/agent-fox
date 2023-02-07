@@ -392,8 +392,8 @@
         &::before {
           content: "";
           position: fixed;
-          left: -13px;
-          right: -13px;
+          left: var(--projects-img-left);
+          right: var(--projects-img-left);
           bottom: 0;
           z-index: 5;
           height: var(--projects-img-height);

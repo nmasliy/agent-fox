@@ -4,6 +4,7 @@
   --container-offset: 20px;
   --container-width: calc(var(--content-width) + var(--container-offset) * 2);
   --projects-img-height: 500px;
+  --projects-img-left: 0;
 }
 
 $index: calc(1vw + 1vh);

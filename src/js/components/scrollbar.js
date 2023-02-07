@@ -9,9 +9,13 @@ if (window.innerWidth > 575) {
     const scrollItem = new SimpleBar(itemNode);
   })
   document.querySelector(':root').style.setProperty('--projects-img-height', `${caseItems[0].offsetHeight}px`);
+  document.querySelector(':root').style.setProperty('--projects-img-left', `${caseItems[0].getBoundingClientRect().x}px`);
 
   window.addEventListener('resize', () => {
     document.querySelector(':root').style.setProperty('--projects-img-height', `${caseItems[0].offsetHeight}px`);
+    document.querySelector(':root').style.setProperty('--projects-img-left', `${caseItems[0].getBoundingClientRect().x}px`);
   })
+
+
 }
 
