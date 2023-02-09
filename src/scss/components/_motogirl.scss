@@ -48,6 +48,8 @@
   &__hand {
     left: 273px;
     bottom: 339px;
+    perspective-origin: left center;
+    animation: hand 1.2s ease-in-out infinite alternate;
 
     img {
       max-width: 167px;

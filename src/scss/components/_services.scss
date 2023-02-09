@@ -107,11 +107,16 @@
     line-height: 30px;
 
     span {
-      margin-left: 11px;
-      font-size: 14px;
-      line-height: 16px;
-      white-space: nowrap;
-      color: $accent-light-color;
+      &:first-child {
+        margin-right: 11px;
+      }
+
+      &:last-child {
+        font-size: 14px;
+        line-height: 16px;
+        white-space: nowrap;
+        color: $accent-light-color;
+      }
     }
   }
 
@@ -254,13 +259,36 @@
     margin: 20px 0;
 
     &__heading {
-      margin-bottom: 15px;
       font-size: 24px;
       line-height: 30px;
+
+      span {
+        &:first-child {
+          margin-right: 8px;
+        }
+
+        &:last-child {
+          font-size: 16px;
+          line-height: 18px;
+        }
+      }
     }
 
     &__item {
-      @include mb(9px);
+      @include mb(16px);
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .service-list {
+    &__heading {
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    &__item {
+      @include mb(20px);
     }
   }
 }

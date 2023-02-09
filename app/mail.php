@@ -5,7 +5,7 @@ require 'phpmailer/SMTP.php';
 require 'phpmailer/Exception.php';
 
 $title = "Заявка с вашего сайта";
-$files = $_FILES['files'];
+$files = $_FILES['files'] ?? '';
 
 $c = true;
 
@@ -13,6 +13,8 @@ $c = true;
 $token = "5792684320:AAHuduSvGz62A-GvVaI7Z_VFyF36QEHoa5Y";
 $chat_id = "-875734044";
 $txt = "";
+
+$body = "";
 
 // Формирование самого письма
 foreach ( $_POST as $key => $value ) {
@@ -62,15 +64,18 @@ try {
   // Настройки вашей почты
   $mail->Host       = 'smtp.gmail.com'; // SMTP сервера вашей почты
   $mail->Username   = 'agentfoxy.com@gmail.com'; // Логин на почте
+  // $mail->Username   = 'deckards2505@gmail.com'; // Логин на почте
   $mail->Password   = 'gdujekgvftdwpzmh'; // Пароль SMTP с почты agentfoxy.com@gmail.com
+  // $mail->Password   = 'ixxcwueftgencdvy'; // Пароль SMTP с почты
   $mail->SMTPSecure = 'ssl';
   $mail->Port       = 465;
 
-  $mail->setFrom('agentfoxy.com@gmail.com', 'Заявка с вашего сайта agentfox'); // Адрес самой почты и имя отправителя
+  $mail->setFrom('agentfox@agent-fox.ru', 'Заявка с вашего сайта agentfox'); // Адрес самой почты и имя отправителя
 
   // Получатели письма
   $mail->addAddress('adv.agentfox@gmail.com');
   $mail->addAddress('deckards2505@gmail.com');
+  $mail->addAddress('agentfoxy.com@gmail.com');
 
   // Прикрепление файлов к письму
   if (!empty($files['name'][0])) {

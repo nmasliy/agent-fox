@@ -43,19 +43,6 @@
       caseContent.addEventListener('mouseleave', (e) => {
         allowScroll = true;
       })
-      if (window.innerWidth > 575) {
-        caseContent.addEventListener('touchstart', (e) => {
-          setTimeout(() => {
-            allowScroll = false;
-          }, 30)
-        })
-        caseContent.addEventListener('touchend', (e) => {
-          setTimeout(() => {
-            allowScroll = true;
-          }, 30)
-        })
-
-      }
     })
 
   }
@@ -89,6 +76,7 @@
 			animateTime : params.animateTime || 0.7,
 			animateFunction : params.animateFunction || 'ease',
 			maxPosition: sections.length - 1,
+      prevPosition: 0,
 			currentPosition: 0,
       isAnimate: false,
 			displayDots: typeof params.displayDots != 'undefined' ? params.displayDots : true,
@@ -210,31 +198,18 @@
         (!document.querySelector('.hero').dataset.animated && +_self.defaults.currentPosition === 0)||
         _self.defaults.isAnimate) return;
 
-      let current = +_self.defaults.currentPosition;
-      let position = 0;
-
 			if (event.deltaY > 0 || event.keyCode == 40) {
-        // if (current === 1 && !window.projectsSlider.isEnd || window.projectsSlider.animating) {
-        //   return;
-        // }
 
         if(!allowScroll) return;
 
-        position = +_self.defaults.currentPosition + 1;
 				_self.defaults.currentPosition ++;
 				_self.changeCurrentPosition(_self.defaults.currentPosition);
 			} else if (event.deltaY < 0 || event.keyCode == 38) {
         if(!allowScroll) return;
 
-        // if (current === 1 && !window.projectsSlider.isBeginning || window.projectsSlider.animating) {
-        //   return;
-        // }
-
-        position = +_self.defaults.currentPosition - 1;
 				_self.defaults.currentPosition --;
 				_self.changeCurrentPosition(_self.defaults.currentPosition);
 			}
-      _self.defaults.onSlideChange({fromPosition: current, toPosition: position});
 			_self.removeEvents();
 		};
 
@@ -251,28 +226,25 @@
 
 			mTouchEnd = parseInt(event.changedTouches[0].clientY);
 			if (mTouchEnd - mTouchStart > 100 || mTouchStart - mTouchEnd > 100) {
-        let current = +_self.defaults.currentPosition;
-        let position = 0;
-
 				if (mTouchEnd > mTouchStart) {
-          position = +_self.defaults.currentPosition - 1;
 					_self.defaults.currentPosition --;
 				} else {
-          position = +_self.defaults.currentPosition + 1;
           _self.defaults.currentPosition ++;
 				}
-        _self.defaults.onSlideChange({fromPosition: current, toPosition: position});
 				_self.changeCurrentPosition(_self.defaults.currentPosition);
 			}
 		};
 
 		this.hashChange = function (event) {
+      let prevPosition = +event.oldURL.substring(event.oldURL.indexOf('#') + 1, event.oldURL.indexOf('#') + 2);
+      _self.defaults.prevPosition = prevPosition;
+
 			if (location) {
         var anchor = location.hash.replace('#', '').split('/')[0];
 				if (anchor !== "") {
           if (anchor == 0) {
-            _self.defaults.onSlideChange({fromPosition: anchor, toPosition: 0});
-            _self.defaults.currentPosition = anchor;
+            _self.defaults.onSlideChange({fromPosition: _self.defaults.prevPosition, toPosition: 0});
+            _self.defaults.currentPosition = +anchor;
 						_self.animateScroll();
           }
 					else if (anchor < 0) {
@@ -280,8 +252,8 @@
 					} else if (anchor > _self.defaults.maxPosition) {
 						_self.changeCurrentPosition(_self.defaults.maxPosition);
 					} else {
-            _self.defaults.onSlideChange({fromPosition: _self.defaults.currentPosition, toPosition: +anchor});
-						_self.defaults.currentPosition = anchor;
+            _self.defaults.onSlideChange({fromPosition: _self.defaults.prevPosition, toPosition: anchor});
+						_self.defaults.currentPosition = +anchor;
 						_self.animateScroll();
 					}
 				}

@@ -10,6 +10,9 @@ if (heroSection && window.innerWidth > 575) {
   initAnimations();
 
   if (+fullpage?.defaults.currentPosition !== 0) {
+    if (sections[+fullpage.defaults.currentPosition]?.dataset.burger === 'white') {
+      burger.classList.add('is-white');
+    }
     gsap.to(".arrow-up", { opacity: 1 });
     burger.classList.add('is-visible');
   }
@@ -22,18 +25,19 @@ function initAnimations() {
   const tl = gsap.timeline();
   const tl2 = gsap.timeline({paused: true});
   const motoTl = gsap.timeline({paused: true});
+  const scrollTl = gsap.timeline({paused: true});
+
+  scrollTl.to(".motogirl", { x: "100vw", y: 700,  filter:"blur(2px)", opacity: 0.4,  duration: 0.7, ease: "power4.in" });
+  scrollTl.to(".hero", { y: -200,  filter:"blur(1px)",  duration: 0.5, ease: "power2.in" }, "-=0.4");
 
   function initAnimationsOnLoad() {
     if (+fullpage?.defaults.currentPosition !== 0) {
-      const ntl = gsap.timeline();
-
-      ntl.to(".motogirl", { x: "100vw", y: 700,  filter:"blur(2px)", opacity: 0.4,  duration: 0.7, ease: "power4.in" });
-      ntl.to(".hero", { y: -200,  filter:"blur(1px)",  duration: 0.5, ease: "power2.in" }, "-=0.4");
-
-      return;
+      scrollTl.play();
+    } else {
+      motoTl.from(".motogirl", { x: "-120vw",  filter:"blur(4px)",  duration: 0.7, ease: "power2.out" });
     }
-    motoTl.from(".motogirl", { x: "-120vw",  filter:"blur(4px)",  duration: 0.7, ease: "power2.out" })
-          .from(".motogirl__back-wheel img", { rotate: -360,  duration: 0.3, ease: "linear", repeat: -1}, "-=0.7")
+
+    motoTl.from(".motogirl__back-wheel img", { rotate: -360,  duration: 0.3, ease: "linear", repeat: -1}, "-=0.7")
           .from(".motogirl__front-wheel img", { rotate: -360,  duration: 0.3, ease: "linear", repeat: -1},"-=1");
 
     if (window.innerWidth > MOBILE_BREAKPOINT) { // В моб. версии фон анимируется снизу, в ПК - справа
@@ -85,15 +89,12 @@ function initAnimations() {
   function allowPageScroll() {
     window.fullpage.defaults.onSlideChangeCustom = ({fromPosition, toPosition}) => { // Анимация появления и исчезания первого экрана при скролле
       if (window.innerWidth > 768) {
-        const ntl = gsap.timeline();
-        if (fromPosition === 0 && toPosition === 1) {
+        if (fromPosition === 0) {
           motoTl.timeScale(1);
-          ntl.to(".motogirl", { x: "100vw", y: 700,  filter:"blur(2px)", opacity: 0.4,  duration: 0.7, ease: "power4.in" });
-          ntl.to(".hero", { y: -200,  filter:"blur(1px)",  duration: 0.5, ease: "power2.in" }, "-=0.4");
+          scrollTl.play();
         } else if (toPosition === 0) {
           motoTl.timeScale(0.05);
-          ntl.to(".hero", { y: 0,  filter:"blur(0)",  duration: 0.5, ease: "power2.out" });
-          ntl.to(".motogirl", { x: 0, y: 0,  filter:"blur(0)", opacity: 1, duration: 0.5, ease: "power2.out" });
+          scrollTl.reverse();
         }
       }
       if (toPosition === 0) gsap.to(".arrow-up", { opacity: 0 });
