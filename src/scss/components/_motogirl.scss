@@ -11,12 +11,13 @@
     left: 0;
     bottom: 0;
     perspective: 150px;
+    -webkit-transform: translateZ(0);
     transform-style: preserve-3d;
+    will-change: transform;
   }
 
   &__bike {
     position: relative;
-    z-index: 2;
 
     img {
       max-width: 596px;
@@ -29,19 +30,21 @@
     z-index: 3;
     perspective-origin: left center;
     transform-origin: left center;
-    animation: body 1.2s ease-in-out infinite alternate;
 
     img {
       max-width: 356px;
     }
 
     &--main {
-      clip-path: polygon(0 0, 100% 0%, 100% 37%, 0 37%);
+      clip-path: polygon(0 0, 100% 0%, 100% 45%, 0 45%);
+      animation: body 1.2s ease-in-out infinite alternate;
     }
 
     &--leg {
+      left: 97px;
       bottom: 70px;
-      clip-path: polygon(0 37%, 100% 37%, 100% 100%, 0 100%);
+      clip-path: polygon(0 45%, 100% 45%, 100% 100%, 0 100%);
+      animation: leg 1.2s ease-in-out infinite alternate;
     }
   }
 
@@ -49,7 +52,8 @@
     left: 273px;
     bottom: 339px;
     perspective-origin: left center;
-    animation: hand 1.2s ease-in-out infinite alternate;
+
+    // animation: hand 1.2s ease-in-out infinite alternate;
 
     img {
       max-width: 167px;
@@ -89,7 +93,9 @@
       z-index: 3;
       clip-path: polygon(0 0, $tail-size 0, $tail-size 100%, 0 100%);
       perspective-origin: left center;
-      transform-origin: top;
+      transform-origin: left center;
+
+      // transform-origin: top;
       animation: hair-tail 1s ease-in-out infinite alternate;
     }
 
@@ -103,7 +109,8 @@
         );
       perspective-origin: left center;
       transform-origin: left center;
-      animation: hair-left 1s ease-in-out infinite alternate;
+
+      // animation: hair-left 1s ease-in-out infinite alternate;
     }
 
     &--center {
@@ -117,7 +124,8 @@
         );
       perspective-origin: left center;
       transform-origin: center;
-      animation: hair-center 0.8s ease-in-out infinite alternate;
+
+      // animation: hair-center 0.8s ease-in-out infinite alternate;
     }
 
     &--right {

@@ -19,6 +19,13 @@
     margin-bottom: 50px;
   }
 
+  &__wrapper {
+    > .container {
+      margin: auto;
+      height: auto;
+    }
+  }
+
   &__bottom {
     display: flex;
     flex-wrap: wrap;

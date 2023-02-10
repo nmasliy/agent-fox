@@ -1,13 +1,60 @@
 import { gsap } from "gsap";
 import { MOBILE_BREAKPOINT } from '../_vars';
 
-
 const heroSection = document.querySelector('.hero');
 const burger = document.querySelector('.burger');
 const sections = document.querySelectorAll('.section');
 
+// const isSafari = true;
+const isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+                  navigator.userAgent &&
+                  navigator.userAgent.indexOf('CriOS') == -1 &&
+                  navigator.userAgent.indexOf('FxiOS') == -1;
+
 if (heroSection && window.innerWidth > 575) {
-  initAnimations();
+  if (isSafari) {
+    // temp
+    const motogirlImages = document.querySelectorAll('.motogirl__img');
+
+    motogirlImages.forEach(item => {
+      item.style.animation = 'none';
+    })
+
+    window.fullpage.defaults.onSlideChangeCustom = ({fromPosition, toPosition}) => { // Анимация появления и исчезания первого экрана при скролле
+      if (toPosition === 0) gsap.to(".arrow-up", { opacity: 0 });
+      else gsap.to(".arrow-up", { opacity: 1 });
+
+      burger.style.transitionDelay = '0.65s';
+
+      setTimeout(() => {
+      burger.style.transitionDelay = '';
+      }, 650)
+
+      if (window.innerWidth > MOBILE_BREAKPOINT) {
+        setTimeout(() => burger.style.transitionDelay = '', 650)
+      }
+
+      if (toPosition !== 0 || window.innerWidth <= MOBILE_BREAKPOINT) {
+        burger.classList.add('is-visible');
+        if (sections[toPosition]?.dataset.burger === 'white') {
+          burger.classList.add('is-white');
+        } else {
+          burger.classList.remove('is-white');
+        }
+      } else {
+        if (window.innerWidth > MOBILE_BREAKPOINT) {
+          burger.classList.remove('is-visible');
+        }
+      }
+
+    }
+  } else {
+    initAnimations();
+  }
+
+  setTimeout(() => {
+    heroSection.dataset.animated = true
+  }, 1500)
 
   if (+fullpage?.defaults.currentPosition !== 0) {
     if (sections[+fullpage.defaults.currentPosition]?.dataset.burger === 'white') {
@@ -27,7 +74,7 @@ function initAnimations() {
   const motoTl = gsap.timeline({paused: true});
   const scrollTl = gsap.timeline({paused: true});
 
-  scrollTl.to(".motogirl", { x: "100vw", y: 700,  filter:"blur(2px)", opacity: 0.4,  duration: 0.7, ease: "power4.in" });
+  scrollTl.to(".motogirl", { x: "100vw",  filter:"blur(2px)", opacity: 0.4,  duration: 0.7, ease: "power4.in" });
   scrollTl.to(".hero", { y: -200,  filter:"blur(1px)",  duration: 0.5, ease: "power2.in" }, "-=0.4");
 
   function initAnimationsOnLoad() {
@@ -82,10 +129,6 @@ function initAnimations() {
 
   initAnimationsOnLoad();
 
-  setTimeout(() => {
-    heroSection.dataset.animated = true
-  }, 1500)
-
   function allowPageScroll() {
     window.fullpage.defaults.onSlideChangeCustom = ({fromPosition, toPosition}) => { // Анимация появления и исчезания первого экрана при скролле
       if (window.innerWidth > 768) {
@@ -103,7 +146,7 @@ function initAnimations() {
       burger.style.transitionDelay = '0.65s';
 
       setTimeout(() => {
-      burger.style.transitionDelay = '';
+        burger.style.transitionDelay = '';
       }, 650)
 
 
@@ -133,7 +176,7 @@ function initAnimations() {
     listItemNode.addEventListener('click', () => {
       motoTl.timeScale(1);
       document.querySelector('.motogirl').style.zIndex = '';
-      ntl.to(".motogirl", { x: "100vw", y: 500,  filter:"blur(2px)", opacity: 0.4, duration: 0.6, ease: "power2.in" });
+      ntl.to(".motogirl", { x: "100vw", filter:"blur(2px)", opacity: 0.4, duration: 0.6, ease: "power2.in" });
       ntl.to(".hero", { y: -300,  filter:"blur(1px)",  duration: 0.5, ease: "power2.in" }, "-=0.5");
     })
   })
