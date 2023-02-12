@@ -41,10 +41,12 @@
     top: 50%;
     z-index: -1;
     transform: translateY(-50%);
+    will-change: transform, filter;
   }
 
   &__img-mobile {
     display: none;
+    will-change: transform, filter;
   }
 
   &__bg-img {

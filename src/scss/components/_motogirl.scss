@@ -5,6 +5,7 @@
   right: 20vw;
   bottom: -45px;
   z-index: 7;
+  will-change: transform, filter;
 
   &__img {
     position: absolute;
@@ -90,6 +91,7 @@
     }
 
     &--tail {
+      left: 8px;
       z-index: 3;
       clip-path: polygon(0 0, $tail-size 0, $tail-size 100%, 0 100%);
       perspective-origin: left center;

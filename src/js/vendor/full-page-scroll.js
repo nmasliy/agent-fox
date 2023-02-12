@@ -195,7 +195,7 @@
 
 		this.mouseWheelAndKey = function (event) {
       if (document.querySelector('.disable-scroll') ||
-        (!document.querySelector('.hero').dataset.animated && +_self.defaults.currentPosition === 0)||
+        (!document.querySelector('.hero').dataset.animated)||
         _self.defaults.isAnimate) return;
 
 			if (event.deltaY > 0 || event.keyCode == 40) {
@@ -243,7 +243,7 @@
         var anchor = location.hash.replace('#', '').split('/')[0];
 				if (anchor !== "") {
           if (anchor == 0) {
-            _self.defaults.onSlideChange({fromPosition: _self.defaults.prevPosition, toPosition: 0});
+            _self.defaults.onSlideChange({fromPosition: +_self.defaults.prevPosition, toPosition: 0});
             _self.defaults.currentPosition = +anchor;
 						_self.animateScroll();
           }
@@ -252,7 +252,7 @@
 					} else if (anchor > _self.defaults.maxPosition) {
 						_self.changeCurrentPosition(_self.defaults.maxPosition);
 					} else {
-            _self.defaults.onSlideChange({fromPosition: _self.defaults.prevPosition, toPosition: anchor});
+            _self.defaults.onSlideChange({fromPosition: +_self.defaults.prevPosition, toPosition: +anchor});
 						_self.defaults.currentPosition = +anchor;
 						_self.animateScroll();
 					}

@@ -5,64 +5,57 @@ const heroSection = document.querySelector('.hero');
 const burger = document.querySelector('.burger');
 const sections = document.querySelectorAll('.section');
 
-// const isSafari = true;
-const isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+let isBlur = true;
+const isSafari =  navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
                   navigator.userAgent &&
                   navigator.userAgent.indexOf('CriOS') == -1 &&
                   navigator.userAgent.indexOf('FxiOS') == -1;
 
 if (heroSection && window.innerWidth > 575) {
   if (isSafari) {
-    // temp
-    const motogirlImages = document.querySelectorAll('.motogirl__img');
+    const motogirlParts = document.querySelectorAll('.motogirl__img');
 
-    motogirlImages.forEach(item => {
+    motogirlParts.forEach(item => {
       item.style.animation = 'none';
     })
 
-    window.fullpage.defaults.onSlideChangeCustom = ({fromPosition, toPosition}) => { // Анимация появления и исчезания первого экрана при скролле
-      if (toPosition === 0) gsap.to(".arrow-up", { opacity: 0 });
-      else gsap.to(".arrow-up", { opacity: 1 });
+    isBlur = false;
 
-      burger.style.transitionDelay = '0.65s';
+    // window.fullpage.defaults.onSlideChangeCustom = ({fromPosition, toPosition}) => { // Анимация появления и исчезания первого экрана при скролле
+    //   if (toPosition === 0) gsap.to(".arrow-up", { opacity: 0 });
+    //   else gsap.to(".arrow-up", { opacity: 1 });
 
-      setTimeout(() => {
-      burger.style.transitionDelay = '';
-      }, 650)
+    //   burger.style.transitionDelay = '0.65s';
 
-      if (window.innerWidth > MOBILE_BREAKPOINT) {
-        setTimeout(() => burger.style.transitionDelay = '', 650)
-      }
+    //   setTimeout(() => {
+    //   burger.style.transitionDelay = '';
+    //   }, 650)
 
-      if (toPosition !== 0 || window.innerWidth <= MOBILE_BREAKPOINT) {
-        burger.classList.add('is-visible');
-        if (sections[toPosition]?.dataset.burger === 'white') {
-          burger.classList.add('is-white');
-        } else {
-          burger.classList.remove('is-white');
-        }
-      } else {
-        if (window.innerWidth > MOBILE_BREAKPOINT) {
-          burger.classList.remove('is-visible');
-        }
-      }
+    //   if (window.innerWidth > MOBILE_BREAKPOINT) {
+    //     setTimeout(() => burger.style.transitionDelay = '', 650)
+    //   }
 
-    }
-  } else {
-    initAnimations();
+    //   if (toPosition !== 0 || window.innerWidth <= MOBILE_BREAKPOINT) {
+    //     burger.classList.add('is-visible');
+    //     if (sections[toPosition]?.dataset.burger === 'white') {
+    //       burger.classList.add('is-white');
+    //     } else {
+    //       burger.classList.remove('is-white');
+    //     }
+    //   } else {
+    //     if (window.innerWidth > MOBILE_BREAKPOINT) {
+    //       burger.classList.remove('is-visible');
+    //     }
+    //   }
+
+    // }
   }
+  // else {}
+  initAnimations();
 
-  setTimeout(() => {
-    heroSection.dataset.animated = true
-  }, 1500)
-
-  if (+fullpage?.defaults.currentPosition !== 0) {
-    if (sections[+fullpage.defaults.currentPosition]?.dataset.burger === 'white') {
-      burger.classList.add('is-white');
-    }
-    gsap.to(".arrow-up", { opacity: 1 });
-    burger.classList.add('is-visible');
-  }
+  // setTimeout(() => {
+  //   heroSection.dataset.animated = true
+  // }, 1500)
 }
 
 function initAnimations() {
@@ -74,27 +67,27 @@ function initAnimations() {
   const motoTl = gsap.timeline({paused: true});
   const scrollTl = gsap.timeline({paused: true});
 
-  scrollTl.to(".motogirl", { x: "100vw",  filter:"blur(2px)", opacity: 0.4,  duration: 0.7, ease: "power4.in" });
-  scrollTl.to(".hero", { y: -200,  filter:"blur(1px)",  duration: 0.5, ease: "power2.in" }, "-=0.4");
-
   function initAnimationsOnLoad() {
+    scrollTl.to(".motogirl", { x: "100vw",  filter: isBlur ? "blur(2px)" : "none", opacity: 0.4,  duration: 0.7, ease: "power4.in" });
+    scrollTl.to(".hero", { y: -200,  filter: isBlur ? "blur(1px)" : "none",  duration: 0.5, ease: "power2.in" }, "-=0.4");
+
     if (+fullpage?.defaults.currentPosition !== 0) {
       scrollTl.play();
     } else {
-      motoTl.from(".motogirl", { x: "-120vw",  filter:"blur(4px)",  duration: 0.7, ease: "power2.out" });
+      motoTl.from(".motogirl", { x: "-120vw",  filter: isBlur ? "blur(4px)" : "none",  duration: 0.7, ease: "power2.out" });
     }
 
     motoTl.from(".motogirl__back-wheel img", { rotate: -360,  duration: 0.3, ease: "linear", repeat: -1}, "-=0.7")
           .from(".motogirl__front-wheel img", { rotate: -360,  duration: 0.3, ease: "linear", repeat: -1},"-=1");
 
     if (window.innerWidth > MOBILE_BREAKPOINT) { // В моб. версии фон анимируется снизу, в ПК - справа
-      tl.from(".hero__bg-img-wrapper", { x: 1000, filter:"blur(50px)", duration: 0.5, ease: "power2.out" });
+      tl.from(".hero__bg-img-wrapper", { x: 1000, filter: isBlur ? "blur(50px)" : "none", duration: 0.5, ease: "power2.out" });
     } else {
-      tl.from(".hero__bg-img-mobile", { y: "100%", filter:"blur(50px)", duration: 0.5, ease: "power2.out" });
+      tl.from(".hero__bg-img-mobile", { y: "100%", filter: isBlur ? "blur(50px)" : "none", duration: 0.5, ease: "power2.out" });
     }
     tl.from(".hero__bg-title--2", { y: "-200%",  duration: 0.5, ease: "power2.out" }, '-=0.2')
       .from(".hero__bg-title--1", { y: "-200%",  duration: 0.5, ease: "power2.out" }, '-=0.5')
-      .from(".header__logo", { y: "-300",  filter:"blur(15px)",  duration: 0.4, ease: "power2.out" }, '-=0.3')
+      .from(".header__logo", { y: "-300",  filter: isBlur ? "blur(15px)" : "none",  duration: 0.4, ease: "power2.out" }, '-=0.3')
       .then(() => {
         tl2.play();
         motoTl.play();
@@ -117,17 +110,15 @@ function initAnimations() {
       })
     }
 
-    tl2.from(".hero__title", { x: "-100vw", filter:"blur(2px)", delay: 0.5,  duration: 0.4, ease: "power2.out" }, '-=0.25')
-      .from(".hero__subtitle", { x: "-100vw", filter:"blur(2px)",  duration: 0.4, ease: "power2.out" }, '-=0.3')
-      .from(".hero__text", { x: "-100vw", filter:"blur(2px)",  duration: 0.5, ease: "power2.out" }, '-=0.3')
+    tl2.from(".hero__title", { x: "-100vw", filter: isBlur ? "blur(2px)" : "none", delay: 0.5,  duration: 0.4, ease: "power2.out" }, '-=0.25')
+      .from(".hero__subtitle", { x: "-100vw", filter: isBlur ? "blur(2px)" : "none",  duration: 0.4, ease: "power2.out" }, '-=0.3')
+      .from(".hero__text", { x: "-100vw", filter: isBlur ? "blur(2px)" : "none",  duration: 0.5, ease: "power2.out" }, '-=0.3')
       .from(".hero__btn-wrapper", { scale: 0,  duration: 0.3, ease: "power2.out" }, '-=0.3')
       .then(() => {
-        heroSection.dataset.animated = true;
         allowPageScroll();
+        heroSection.dataset.animated = true;
       });
   }
-
-  initAnimationsOnLoad();
 
   function allowPageScroll() {
     window.fullpage.defaults.onSlideChangeCustom = ({fromPosition, toPosition}) => { // Анимация появления и исчезания первого экрана при скролле
@@ -170,14 +161,23 @@ function initAnimations() {
     }
   }
 
+  initAnimationsOnLoad();
+
+  if (+fullpage?.defaults.currentPosition !== 0) {
+    if (sections[+fullpage.defaults.currentPosition]?.dataset.burger === 'white') {
+      burger.classList.add('is-white');
+    }
+    gsap.to(".arrow-up", { opacity: 1 });
+    burger.classList.add('is-visible');
+  }
+
   const ntl = gsap.timeline();
 
   navListItemNodes.forEach(listItemNode => { // Анимация первого экране при навигации по секциям через меню
     listItemNode.addEventListener('click', () => {
       motoTl.timeScale(1);
-      document.querySelector('.motogirl').style.zIndex = '';
-      ntl.to(".motogirl", { x: "100vw", filter:"blur(2px)", opacity: 0.4, duration: 0.6, ease: "power2.in" });
-      ntl.to(".hero", { y: -300,  filter:"blur(1px)",  duration: 0.5, ease: "power2.in" }, "-=0.5");
+      ntl.to(".motogirl", { x: "100vw", filter: isBlur ? "blur(2px)" : "none", opacity: 0.4, duration: 0.6, ease: "power2.in" });
+      ntl.to(".hero", { y: -300,  filter: isBlur ? "blur(1px)" : "none",  duration: 0.5, ease: "power2.in" }, "-=0.5");
     })
   })
 }
