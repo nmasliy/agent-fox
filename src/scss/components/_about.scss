@@ -1,6 +1,6 @@
 .about {
   color: $white-color;
-  background: url("../img/about.png") bottom right no-repeat, url("../img/about-bg.png")  center / cover no-repeat;
+  background: url("../img/about.png") bottom right / 1000px no-repeat, url("../img/about-bg.png")  center / cover no-repeat;
 
   &__title {
     margin-bottom: 50px;
@@ -90,7 +90,7 @@
 @media screen and (max-width: 575px) {
   .about {
     background:
-      url("../img/about.png") bottom right -50px / 527px no-repeat,
+      url("../img/about.png") bottom right -35px / 527px no-repeat,
       url("../img/about-bg-mobile.png") center / cover no-repeat;
 
     &::after {
