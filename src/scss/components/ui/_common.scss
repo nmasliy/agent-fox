@@ -1,6 +1,7 @@
 .page-wrapper {
   position: relative;
   height: 100%;
+  -webkit-backface-visibility: hidden;
   will-change: transform;
 }
 
