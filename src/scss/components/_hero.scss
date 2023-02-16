@@ -1,5 +1,5 @@
 .hero {
-  overflow: hidden;
+  // overflow: hidden;
 
   &__inner {
     position: relative;
@@ -76,6 +76,12 @@
       font-weight: 900;
       font-size: 480px;
     }
+  }
+}
+
+@media screen and (max-width: 1800px) {
+  .motogirl {
+    right: 100px;
   }
 }
 
